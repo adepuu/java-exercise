@@ -46,5 +46,17 @@ public class SwitchCase {
             }
         };
         System.out.println(result); // Output: Positive number, but more than 3
+
+        // code below demonstrates the use of a switch expression in Java to determine whether today is a weekday or a weekend
+        // based on the value of the today variable, which is an instance of an enum Day.
+        // The switch expression evaluates today and assigns a boolean value to the variable isWeekday indicating
+        // whether it's a weekday (true) or a weekend (false). This is achieved without using the yield keyword,
+        // which is a feature introduced in Java 14 to simplify switch expressions by allowing them to return values directly.
+        Day today = Day.MONDAY;
+        var isWeekday = switch (today) {
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> true;
+            case SATURDAY, SUNDAY -> false;
+        };
+        System.out.println("Should we work today? : " + isWeekday); //Output: true
     }
 }
