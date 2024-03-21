@@ -9,6 +9,6 @@ Welcome to the DTISE-0106 Java Exercise Repository! This repository contains Jav
 ### 4. Advanced Topics
 
 ## How to Use
-1. Clone this repository to your local machine.
+1. Clone this repository to your local machine (use SSH pls!).
    ```bash
-   git clone https://github.com/adepuu/java-exercise.git
+   git clone git@github.com:adepuu/java-exercise.git

@@ -2,7 +2,7 @@ package com.adepuu.conditional;
 
 public class IfElseDemo {
     /**
-     * <h1>Java Programming Demo: IF-ELSE Statements</h1>
+     * <h1>Java Programming Demo: Conditional</h1>
      *
      * <p>This demo is designed for the 3rd meeting on Java programming, focusing exclusively on IF-ELSE statements.
      * It provides a comprehensive overview of IF-ELSE usage, including basic, nested, and compound IF-ELSE statements.</p>
