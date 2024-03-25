@@ -12,14 +12,19 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         int[] input = {1, 2, 3, 4, 5, 6, 7};
-        int d=2;
+        int d=5;
         var result= arrayRotation(input,d);
         System.out.println(result);
     }
 
     public static ArrayList<Integer> arrayRotation(int[] input, int d){
         ArrayList<Integer> result = new ArrayList<>();
-        
+        for (int i = d; i <input.length ; i++) {
+            result.add(input[i]);
+        }
+        for(int i=0;i<d;i++){
+            result.add(input[i]);
+        }
         return result;
     }
 }
