@@ -1,5 +1,8 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Exercise3 {
     /**
      * Write a Java Program to Check if Array Contain Duplicates
@@ -17,14 +20,25 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
-        int[] nums = {1,1,1,3,3,4,3,2,4,2};
-        boolean flag = false;
-        for(int i = 0; i < nums.length; i++){
+        Scanner numInput = new Scanner(System.in);
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        boolean isDone = false, flag = false;
+        
+        do {
+            System.out.print("Input a number : ");
+            nums.add(numInput.nextInt());
+            System.out.print("Input again? (press y to continue) ");
+            numInput.nextLine();
+            if(!numInput.nextLine().equals("y"))
+            isDone = true;
+        } while (!isDone);
+        numInput.close();
+
+        for(int i = 0; i < nums.size(); i++){
             if(!flag){
-                for(int j = i+1; j < nums.length; j++){
-                    if(nums[i]==nums[j]){
+                for(int j = i+1; j < nums.size(); j++){
+                    if(nums.get(i)==nums.get(j)){
                         flag = true;
-                        System.out.println(flag);
                         break;
                     }
                 }
@@ -32,5 +46,6 @@ public class Exercise3 {
                 break;
             }
         }
+        System.out.println("do you have a duplicate number? : " + flag);
     }
 }
