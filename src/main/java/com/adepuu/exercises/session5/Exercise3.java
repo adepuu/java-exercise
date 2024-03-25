@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.HashSet;
+
 public class Exercise3 {
     /**
      * Write a Java Program to Check if Array Contain Duplicates
@@ -17,6 +19,22 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
+        int[] arr = {5,4,2,667,73,12,56,32,4};
+        System.out.println(isDuplicate(arr));
+    }
 
+    public static boolean isDuplicate(int[] inputArray){
+        HashSet<Integer> seen = new HashSet<>();
+        boolean duplicate = false;
+        for(int num : inputArray){
+            if(seen.contains(num)){
+                duplicate = true;
+                break;
+            }
+            else{
+                seen.add(num);
+            }
+        }
+        return duplicate;
     }
 }
