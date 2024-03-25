@@ -8,7 +8,6 @@ public class Exercise1 {
     **/
     public static void main(String[] args) {
         int[] input={7,2,5,1,4,10,11};
-
         System.out.println(findMax(input));
     }
     public static int findMax(int[] input){
