@@ -16,7 +16,11 @@ public class Exercise1 {
             input[i] =Integer.valueOf(num);
             i++;
         }
-        Arrays.sort(input);
+        for(int j = 0 ; j < input.length-1;j++){
+            if(input[j] > input[j+1]){
+                input[j+1] = input[j];
+            }
+        }
         System.out.print("Output = " + input[input.length-1]);
     }
 }
