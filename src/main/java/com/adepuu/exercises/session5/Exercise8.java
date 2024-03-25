@@ -1,6 +1,7 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Exercise8 {
     /**
@@ -26,12 +27,19 @@ public class Exercise8 {
 
         public static ArrayList<Integer> findDuplicates(int[] input){
             ArrayList<Integer> result = new ArrayList<>();
-            int j=1;
-            for (int i=0;i<input.length;i++) {
-                if (input[i] == input[i+1] ) {
-                    result.add(i);
+            HashMap<Integer,Integer> temporaryMapping = new HashMap<>();
+            for (int i = 0; i < input.length-1; i++) {
+                if(temporaryMapping.containsKey(input[i])){
+                    var occurence = temporaryMapping.get(input[i]);
+                    temporaryMapping.put(input[i],++occurence);
+                }else{
+                    temporaryMapping.put(input[i],1);
                 }
-            }
+            }temporaryMapping.forEach((key, value)->{
+                if(value>1){
+                    result.add(key);
+                }
+            });
             return result;
         }
     }
