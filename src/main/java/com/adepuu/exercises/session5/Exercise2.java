@@ -8,6 +8,8 @@ public class Exercise2 {
      * Explanation: d=2 so 2 elements are rotated to the end of the array. So, 1 2 is rotated back
      * So, Final result: 3, 4, 5, 6, 7, 1, 2
      */
+    
+
     public static void main(String[] args) {
 
     }

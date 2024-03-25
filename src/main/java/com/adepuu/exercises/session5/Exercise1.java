@@ -15,8 +15,12 @@ public class Exercise1 {
             if(arr[i]> arr[i + 1]){
                 result.add(arr[i]);
             }
-            System.out.println(result);
+            System.out.println("result = " + result);
             return;
         }
+    }
+
+    public static void main(String[] args) {
+        findLargest();
     }
 }
