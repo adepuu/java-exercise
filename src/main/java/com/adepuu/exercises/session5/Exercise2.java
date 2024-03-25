@@ -1,6 +1,7 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Exercise2 {
     /**
@@ -12,14 +13,35 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<Integer>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(3);
-        arr.add(4);
-        arr.add(5);
-        arr.add(6);
-        arr.add(7);
-        int d = 2;
+        Scanner numInput = new Scanner(System.in);
+        boolean isDone = false;
+
+        do {
+            System.out.print("Input a number : ");
+            arr.add(numInput.nextInt());
+            System.out.print("Input again? (press y to continue) ");
+            numInput.nextLine();
+            if(!numInput.nextLine().equals("y"))
+            isDone = true;
+        } while (!isDone);
+        
+        System.out.println("This is your numbers : "+arr.toString());
+        System.out.print("Input how much number you want to rotate : ");
+        int d = 0;
+
+        do {
+            d = numInput.nextInt();
+            if(d > arr.size()){
+                isDone = false;
+                System.out.print("You can't rotate more than your number, input less : ");
+            }
+            else{
+                isDone= true;
+            }
+        } while (!isDone);
+        
+        numInput.close();
+
         for(int i = 0; i < d; i++){
             int tempNum = arr.get(i);
             arr.add(tempNum);
@@ -27,6 +49,6 @@ public class Exercise2 {
         for(int i = 0; i < d; i++){
             arr.remove(0);
         }
-        System.out.println(arr.toString());
+        System.out.println("This is your rotated number : " + arr.toString());
     }
 }
