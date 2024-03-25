@@ -20,7 +20,6 @@ public class Exercise2 {
         
         arr = inputNumber.inputArray();
         
-        System.out.println("This is your numbers : "+arr.toString());
         System.out.print("Input how much number you want to rotate : ");
 
         do {

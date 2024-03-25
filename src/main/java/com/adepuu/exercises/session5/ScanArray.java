@@ -17,7 +17,7 @@ public class ScanArray {
             if(!numInput.nextLine().equals("y"))
             isDone = true;
         } while (!isDone);
-
+        System.out.println("This is your numbers : "+nums.toString());
         return nums;
     }
 }

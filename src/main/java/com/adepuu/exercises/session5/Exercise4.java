@@ -15,8 +15,6 @@ public class Exercise4 {
         ScanArray inputNumber = new ScanArray();
 
         nums = inputNumber.inputArray();
-
-        System.out.println("It is your number : " + nums.toString());
         
         for(int i = 0; i < nums.size(); i++){
             for(int j = i+1; j < nums.size(); j++){
@@ -26,6 +24,6 @@ public class Exercise4 {
                 }
             }
         }
-        System.out.println("It is your number without duplicate : "+nums.toString());
+        System.out.println("This is your number without duplicate : "+nums.toString());
     }
 }

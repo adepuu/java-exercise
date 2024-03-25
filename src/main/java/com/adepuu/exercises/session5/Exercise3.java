@@ -23,7 +23,6 @@ public class Exercise3 {
         ArrayList<Integer> nums = new ArrayList<Integer>();
         nums = inputNumber.inputArray();
         boolean flag = false;
-        
 
         for(int i = 0; i < nums.size(); i++){
             if(!flag){
@@ -37,6 +36,6 @@ public class Exercise3 {
                 break;
             }
         }
-        System.out.println("do you have a duplicate number? : " + flag);
+        System.out.println("Do you have a duplicate number? : " + flag);
     }
 }
