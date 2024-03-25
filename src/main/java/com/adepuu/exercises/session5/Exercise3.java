@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+
 public class Exercise3 {
     /**
      * Write a Java Program to Check if Array Contain Duplicates
@@ -17,6 +19,29 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
+        ArrayList<Integer> nums = ScanArray.inputArray();
+        boolean flag = findDuplicate(nums);
+        
+        System.out.println("Do you have a duplicate number? : " + flag);
+    }
+    
 
+    static boolean findDuplicate(ArrayList<Integer> numbers){
+        boolean flag = false;
+
+        for(int i = 0; i < numbers.size(); i++){
+            if(!flag){
+                for(int j = i+1; j < numbers.size(); j++){
+                    if(numbers.get(i)==numbers.get(j)){
+                        flag = true;
+                        break;
+                    }
+                }
+            }else{
+                break;
+            }
+        }
+
+        return flag;
     }
 }
