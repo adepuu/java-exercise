@@ -27,5 +27,7 @@ public class Exercise4 {
             nums[j++] = nums[n-1];
             for (int k = 0; k < j; k++)
                 System.out.print(nums[k]+" ");
+
+        input.close();
     }
 }

@@ -29,8 +29,10 @@ public class Exercise6 {
             array.add(input.nextInt());
         }
 
+
         System.out.println("Number to remove: ");
         removeValue = input.nextInt();
+        input.close();
         if (array.contains(removeValue)){
             array.removeAll(Collections.singleton(removeValue));
         }

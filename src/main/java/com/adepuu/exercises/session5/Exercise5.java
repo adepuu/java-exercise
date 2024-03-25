@@ -33,5 +33,7 @@ public class Exercise5 {
             array[i] = input.nextInt();
             for (int j = n - 1; j >= 0; j--)
                 System.out.print(array[j]+" ");
+
+        input.close();
     }
 }

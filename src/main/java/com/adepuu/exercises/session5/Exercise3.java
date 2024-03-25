@@ -34,5 +34,7 @@ public class Exercise3 {
                     duplicates=true;
                 }
         System.out.println(duplicates);
+
+        input.close();
     }
 }

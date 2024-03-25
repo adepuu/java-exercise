@@ -15,6 +15,8 @@ public class Exercise1 {
             maxNumber = Math.max(maxNumber, array[i]);
         }
 
+        input.close();
+
         System.out.println("The biggest number is: "+maxNumber);
     }
 }
