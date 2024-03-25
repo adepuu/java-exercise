@@ -19,8 +19,7 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
-        ArrayList<Integer> nums = new ArrayList<Integer>();
-        nums = ScanArray.inputArray();
+        ArrayList<Integer> nums = ScanArray.inputArray();
         boolean flag = false;
 
         for(int i = 0; i < nums.size(); i++){

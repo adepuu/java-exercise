@@ -12,12 +12,10 @@ public class Exercise2 {
      * So, Final result: 3, 4, 5, 6, 7, 1, 2
      */
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<Integer>();
+        ArrayList<Integer> arr = ScanArray.inputArray();
         Scanner numInput = new Scanner(System.in);
         boolean isDone = true;
         int d = 0;
-        
-        arr = ScanArray.inputArray();
         
         System.out.print("Input how much number you want to rotate : ");
 
@@ -41,6 +39,7 @@ public class Exercise2 {
         for(int i = 0; i < d; i++){
             arr.remove(0);
         }
+        
         System.out.println("This is your rotated number : " + arr.toString());
     }
 }

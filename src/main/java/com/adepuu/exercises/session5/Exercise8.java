@@ -19,9 +19,8 @@ public class Exercise8 {
      * Output: []
      */
     public static void main(String[] args) {
-        ArrayList<Integer> nums = new ArrayList<Integer>();
+        ArrayList<Integer> nums = ScanArray.inputArray();
         ArrayList<Integer> duplicateNums = new ArrayList<Integer>();
-        nums = ScanArray.inputArray();
 
         for(int i = 0; i < nums.size(); i++){
             for(int j = i+1; j < nums.size(); j++){

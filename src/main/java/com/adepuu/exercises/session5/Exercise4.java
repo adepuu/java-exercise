@@ -11,9 +11,7 @@ public class Exercise4 {
      * @param args
      */
     public static void main(String[] args) {
-        ArrayList<Integer> nums = new ArrayList<Integer>();
-
-        nums = removeDuplicate(ScanArray.inputArray());
+        ArrayList<Integer> nums = removeDuplicate(ScanArray.inputArray());
         
         System.out.println("This is your number without duplicate : "+nums.toString());
     }

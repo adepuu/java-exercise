@@ -16,10 +16,9 @@ public class Exercise5 {
      * Output: [ 8,7, 5, 2 ]
      */
     public static void main(String[] args) {
-        ArrayList<Integer> numberArray = new ArrayList<Integer>();
+        ArrayList<Integer> numberArray = ScanArray.inputArray();
         Scanner myScanner = new Scanner(System.in);
 
-        numberArray = ScanArray.inputArray();
         String direction = "";
         boolean flag = true;
         
