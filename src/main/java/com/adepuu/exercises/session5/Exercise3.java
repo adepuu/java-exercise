@@ -16,7 +16,23 @@ public class Exercise3 {
      * Input: nums = [1,1,1,3,3,4,3,2,4,2]
      * Output: true
      */
-    public static void main(String[] args) {
 
+    public static boolean checkDuplicate (int[] arr) {
+        int i = 0;
+
+        while (i < arr.length) {
+            for(int j = i + 1; i < arr.length; j++) {
+                if(arr[i] == arr[j]) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 1};
+
+        System.out.println(checkDuplicate(array));
     }
 }
