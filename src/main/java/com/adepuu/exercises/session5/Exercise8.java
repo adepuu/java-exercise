@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+
 public class Exercise8 {
     /**
      * Java String Program to Find all Duplicates on Array
@@ -17,6 +19,19 @@ public class Exercise8 {
      * Output: []
      */
     public static void main(String[] args) {
+            int[] input={4,3,2,7,8,2,3,1};
+            var result = findDuplicates(input);
+            System.out.println(result);
+        }
 
+        public static ArrayList<Integer> findDuplicates(int[] input){
+            ArrayList<Integer> result = new ArrayList<>();
+            int j=1;
+            for (int i=0;i<input.length;i++) {
+                if (input[i] == input[i+1] ) {
+                    result.add(i);
+                }
+            }
+            return result;
+        }
     }
-}
