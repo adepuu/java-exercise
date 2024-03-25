@@ -16,9 +16,8 @@ public class Exercise6 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> nums = new ArrayList<Integer>();
-        ScanArray inputNumber = new ScanArray();
         Scanner myScanner = new Scanner(System.in);
-        nums = inputNumber.inputArray();
+        nums = ScanArray.inputArray();
 
         System.out.print("What number do you want to remove? : ");
         int removedNum = myScanner.nextInt();

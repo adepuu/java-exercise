@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ScanArray {
-    public ArrayList<Integer> inputArray(){
+    public static ArrayList<Integer> inputArray(){
         Scanner numInput = new Scanner(System.in);
         ArrayList<Integer> nums = new ArrayList<Integer>();
         boolean isDone = false;

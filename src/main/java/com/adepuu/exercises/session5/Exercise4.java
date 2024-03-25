@@ -12,10 +12,13 @@ public class Exercise4 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> nums = new ArrayList<Integer>();
-        ScanArray inputNumber = new ScanArray();
 
-        nums = inputNumber.inputArray();
+        nums = removeDuplicate(ScanArray.inputArray());
         
+        System.out.println("This is your number without duplicate : "+nums.toString());
+    }
+
+    public static ArrayList<Integer> removeDuplicate(ArrayList<Integer> nums){
         for(int i = 0; i < nums.size(); i++){
             for(int j = i+1; j < nums.size(); j++){
                 if(nums.get(i)==nums.get(j)){
@@ -24,6 +27,6 @@ public class Exercise4 {
                 }
             }
         }
-        System.out.println("This is your number without duplicate : "+nums.toString());
+        return nums;
     }
 }

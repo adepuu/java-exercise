@@ -13,12 +13,11 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<Integer>();
-        ScanArray inputNumber = new ScanArray();
         Scanner numInput = new Scanner(System.in);
         boolean isDone = true;
         int d = 0;
         
-        arr = inputNumber.inputArray();
+        arr = ScanArray.inputArray();
         
         System.out.print("Input how much number you want to rotate : ");
 
