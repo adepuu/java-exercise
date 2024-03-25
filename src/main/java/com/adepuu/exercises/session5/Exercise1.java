@@ -7,13 +7,16 @@ public class Exercise1 {
      * Output: 7
     **/
     public static void main(String[] args) {
-        int[] input={7,2,5,1,4};
+        int[] input={7,2,5,1,4,10,11};
+
+        System.out.println(findMax(input));
+    }
+    public static int findMax(int[] input){
         int max=input[0];
         for (int i = 1; i < input.length; i++) {
             if (max < input[i]) {
                 max=input[i];
             }
-        }
-        System.out.println(max);
+        }return max;
     }
 }
