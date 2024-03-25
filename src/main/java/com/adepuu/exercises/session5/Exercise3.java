@@ -20,12 +20,19 @@ public class Exercise3 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> nums = ScanArray.inputArray();
+        boolean flag = findDuplicate(nums);
+        
+        System.out.println("Do you have a duplicate number? : " + flag);
+    }
+    
+
+    static boolean findDuplicate(ArrayList<Integer> numbers){
         boolean flag = false;
 
-        for(int i = 0; i < nums.size(); i++){
+        for(int i = 0; i < numbers.size(); i++){
             if(!flag){
-                for(int j = i+1; j < nums.size(); j++){
-                    if(nums.get(i)==nums.get(j)){
+                for(int j = i+1; j < numbers.size(); j++){
+                    if(numbers.get(i)==numbers.get(j)){
                         flag = true;
                         break;
                     }
@@ -34,6 +41,7 @@ public class Exercise3 {
                 break;
             }
         }
-        System.out.println("Do you have a duplicate number? : " + flag);
+
+        return flag;
     }
 }

@@ -22,6 +22,13 @@ public class Exercise7 {
         System.out.print("Input the second text : ");
         String secondText = myScanner.nextLine();
         myScanner.close();
+        
+        boolean isAnagram = anagramChecker(firstText, secondText);
+
+        System.out.println("Is it anagram? : " + isAnagram);
+    }
+
+    static boolean anagramChecker(String firstText, String secondText){
         boolean isAnagram = true;
 
         String[] firstArr = firstText.split("");
@@ -38,6 +45,7 @@ public class Exercise7 {
         else{
             isAnagram=false;
         }
-        System.out.println("Is it anagram? : " + isAnagram);
+
+        return isAnagram;
     }
 }

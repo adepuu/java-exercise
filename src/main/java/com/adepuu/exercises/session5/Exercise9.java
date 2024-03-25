@@ -20,6 +20,13 @@ public class Exercise9 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> temperatures = ScanArray.inputArray();
+        ArrayList<Integer> dayToWait = calculateDay(temperatures);
+        
+        System.out.println(dayToWait.toString());
+    }
+
+    
+    static ArrayList<Integer> calculateDay(ArrayList<Integer> temperatures){
         ArrayList<Integer> dayToWait = new ArrayList<Integer>();
 
         for(int i = 0; i < temperatures.size(); i++){
@@ -36,6 +43,7 @@ public class Exercise9 {
                 dayToWait.add(0);
             }
         }
-        System.out.println(dayToWait.toString());
+
+        return dayToWait;
     }
 }

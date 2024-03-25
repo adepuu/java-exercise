@@ -1,6 +1,7 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Exercise8 {
     /**
@@ -20,18 +21,25 @@ public class Exercise8 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> nums = ScanArray.inputArray();
+        
+        ArrayList<Integer> duplicateNums = findDuplicate(nums);
+        duplicateNums = Exercise4.removeDuplicate(duplicateNums);
+        Collections.sort(duplicateNums);
+        System.out.println("This is your duplicate number : " + duplicateNums.toString());
+    }
+
+    
+    static ArrayList<Integer> findDuplicate(ArrayList<Integer> numbers){
         ArrayList<Integer> duplicateNums = new ArrayList<Integer>();
 
-        for(int i = 0; i < nums.size(); i++){
-            for(int j = i+1; j < nums.size(); j++){
-                if(nums.get(i)==nums.get(j)){
-                    duplicateNums.add(nums.get(i));
+        for(int i = 0; i < numbers.size(); i++){
+            for(int j = i+1; j < numbers.size(); j++){
+                if(numbers.get(i)==numbers.get(j)){
+                    duplicateNums.add(numbers.get(i));
                     break;
                 }
             }
         }
-
-        duplicateNums = Exercise4.removeDuplicate(duplicateNums);
-        System.out.println("This is your duplicate number : " + duplicateNums.toString());
+        return duplicateNums;
     }
 }
