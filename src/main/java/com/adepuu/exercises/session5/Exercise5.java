@@ -1,7 +1,6 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Exercise5 {
@@ -37,11 +36,28 @@ public class Exercise5 {
         } while (!flag);
         
         myScanner.close();
+        int tempNum;
 
         if(direction.toLowerCase().equals("asc")){
-            Collections.sort(numberArray);  
+            for(int i = 0; i < numberArray.size(); i++){
+                for(int j = i+1; j < numberArray.size(); j++){
+                    if(numberArray.get(i) > numberArray.get(j)){
+                        tempNum = numberArray.get(i);
+                        numberArray.set(i, numberArray.get(j));
+                        numberArray.set(j, tempNum);
+                    }
+                }
+            }
         } else {
-            Collections.sort(numberArray, Collections.reverseOrder());  
+            for(int i = 0; i < numberArray.size(); i++){
+                for(int j = i+1; j < numberArray.size(); j++){
+                    if(numberArray.get(i) < numberArray.get(j)){
+                        tempNum = numberArray.get(i);
+                        numberArray.set(i, numberArray.get(j));
+                        numberArray.set(j, tempNum);
+                    }
+                }
+            }
         }
         System.out.println("This is your "+direction.toUpperCase()+ " numbers : " + numberArray.toString());
     }
