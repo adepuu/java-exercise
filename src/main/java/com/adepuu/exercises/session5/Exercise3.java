@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Exercise3 {
@@ -19,12 +21,13 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
-        int[] arr = {5,4,2,667,73,12,56,32,4};
+//        int[] arr = {5,4,2,667,73,12,56,32,4};
+        int[] arr = {5,4,2,667,73,12,56};
         System.out.println(isDuplicate(arr));
     }
 
     public static boolean isDuplicate(int[] inputArray){
-        HashSet<Integer> seen = new HashSet<>();
+        ArrayList<Integer> seen = new ArrayList<>();
         boolean duplicate = false;
         for(int num : inputArray){
             if(seen.contains(num)){
