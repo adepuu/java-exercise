@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+
 public class Exercise6 {
     /**
      * Java Array Program to Remove All Occurrences of an Element in an Array
@@ -12,6 +14,19 @@ public class Exercise6 {
      * Final result: [2, 3, 5]
      */
     public static void main(String[] args) {
+        int[] input={1, 2, 1, 3, 5, 1};
+        int key = 1;
+        var result = removeTargetKey(input,key);
+        System.out.println(result);
+    }
 
+    public static ArrayList<Integer> removeTargetKey(int[] input, int key){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i : input) {
+            if (i != key) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 }
