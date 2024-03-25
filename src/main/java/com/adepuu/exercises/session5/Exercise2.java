@@ -9,6 +9,8 @@ public class Exercise2 {
      * So, Final result: 3, 4, 5, 6, 7, 1, 2
      */
     public static void main(String[] args) {
+        int[] input = {1, 2, 3, 4, 5, 6, 7};
+        int d=2;
 
     }
 }
