@@ -25,7 +25,7 @@ public class Exercise2Memoization {
     }
 
     public static void main(String[] args) {
-        int n = 10; // Example input
+        int n = 2000; // Example input
         System.out.println("Fibonacci of " + n + " is " + fibonacci(n));
     }
 }

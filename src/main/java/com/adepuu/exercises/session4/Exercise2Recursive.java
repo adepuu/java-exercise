@@ -7,7 +7,7 @@ public class Exercise2Recursive {
     }
 
     public static void main(String[] args) {
-        int n = 6;
+        int n = 2000;
         System.out.print("Fibonacci of " + n + " is " + fibonacci(n));
     }
 }
