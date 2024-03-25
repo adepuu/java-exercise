@@ -17,7 +17,6 @@ public class ScanArray {
             if(!numInput.nextLine().equals("y"))
             isDone = true;
         } while (!isDone);
-        numInput.close();
 
         return nums;
     }

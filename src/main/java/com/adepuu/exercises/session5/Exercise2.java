@@ -1,6 +1,7 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Exercise2 {
     /**
@@ -13,12 +14,27 @@ public class Exercise2 {
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<Integer>();
         ScanArray inputNumber = new ScanArray();
-        int d = 2;
+        Scanner numInput = new Scanner(System.in);
+        boolean isDone = true;
+        int d = 0;
         
         arr = inputNumber.inputArray();
         
         System.out.println("This is your numbers : "+arr.toString());
-       // System.out.print("Input how much number you want to rotate : ");
+        System.out.print("Input how much number you want to rotate : ");
+
+        do {
+            d = numInput.nextInt();
+            if(d > arr.size()){
+                isDone = false;
+                System.out.print("You can't rotate more than your number, input less : ");
+            }
+            else{
+                isDone= true;
+            }
+        } while (!isDone);
+
+        numInput.close();
 
         for(int i = 0; i < d; i++){
             int tempNum = arr.get(i);
