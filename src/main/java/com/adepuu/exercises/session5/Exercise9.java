@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.Scanner;
+
 public class Exercise9 {
     /**
      * Java Program to get the number of days you have to wait after the i-th day to get a warmer temperature
@@ -17,6 +19,15 @@ public class Exercise9 {
      * Output: [1,1,0]
      */
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n = input.nextInt();
+        int[] temperature = new int[n];
+
+        for (int i = 0; i < n; i++){
+            temperature[i] = input.nextInt();
+        }
+
 
     }
 }

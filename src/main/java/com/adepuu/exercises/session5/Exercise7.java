@@ -26,26 +26,6 @@ public class Exercise7 {
         input.close();
 
         System.out.println(isAnagram(firstWord, secondWord));
-
-//        boolean isAnagram = true;
-//
-//        String firstWord = input.next();
-//        Set<String> secondWord = new HashSet<String>();
-//        secondWord.add(input.next());
-//
-//        for (char i : firstWord.toCharArray()) {
-//            if (!secondWord.equals(firstWord.toCharArray())) {
-//                isAnagram = false;
-//            } else {
-//                isAnagram = true;
-//            }
-//        }
-//
-//        if (!secondWord.contains(firstWord.length())){
-//            isAnagram = false;
-//        }
-//        System.out.println(isAnagram);
-
     }
 
     private static boolean isAnagram(String firstWord, String secondWord){
