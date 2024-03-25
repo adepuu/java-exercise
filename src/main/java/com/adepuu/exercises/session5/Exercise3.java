@@ -20,8 +20,11 @@ public class Exercise3 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.println("Input n: ");
         int n = input.nextInt();
         boolean duplicates = false;
+
+        System.out.println("Check the duplicate number: ");
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = input.nextInt();
