@@ -1,7 +1,6 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Exercise3 {
     /**
@@ -20,19 +19,11 @@ public class Exercise3 {
      * Output: true
      */
     public static void main(String[] args) {
-        Scanner numInput = new Scanner(System.in);
+        ScanArray inputNumber = new ScanArray();
         ArrayList<Integer> nums = new ArrayList<Integer>();
-        boolean isDone = false, flag = false;
+        nums = inputNumber.inputArray();
+        boolean flag = false;
         
-        do {
-            System.out.print("Input a number : ");
-            nums.add(numInput.nextInt());
-            System.out.print("Input again? (press y to continue) ");
-            numInput.nextLine();
-            if(!numInput.nextLine().equals("y"))
-            isDone = true;
-        } while (!isDone);
-        numInput.close();
 
         for(int i = 0; i < nums.size(); i++){
             if(!flag){
