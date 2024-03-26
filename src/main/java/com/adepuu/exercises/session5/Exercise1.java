@@ -10,19 +10,29 @@ public class Exercise1 {
 //    Output: 7
     public static int findLargest () {
         int[] arr= {7, 2, 5, 1, 4, 8, 1, 10};
-        List<Integer> result = new ArrayList<>();
-        for(int i = 0; i < arr.length; ++i){
-            for (int j = i+1; j < arr.length; ++j ) {
-                if (arr[i] > arr[j]) {
-                    result.add(arr[i]);
-                    break;
-                } else {
-                    result.add(arr[j]);
-                }
+        int max_idx = 0;
 
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[max_idx] < arr[i]){
+                max_idx = i;
             }
         }
-        return result.getLast();
+
+        return arr[max_idx];
+
+//        List<Integer> result = new ArrayList<>();
+//        for(int i = 0; i < arr.length; ++i){
+//            for (int j = i+1; j < arr.length; ++j ) {
+//                if (arr[i] > arr[j]) {
+//                    result.add(arr[i]);
+//                    break;
+//                } else {
+//                    result.add(arr[j]);
+//                }
+//
+//            }
+//        }
+//        return result.getLast();
     }
 
     public static void main(String[] args) {
