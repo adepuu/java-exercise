@@ -1,5 +1,8 @@
 package com.adepuu.exercises.session5;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Exercise6 {
     /**
      * Java Array Program to Remove All Occurrences of an Element in an Array
@@ -12,6 +15,18 @@ public class Exercise6 {
      * Final result: [2, 3, 5]
      */
     public static void main(String[] args) {
+        int[] input = {1,2,1,3,5,1};
+        System.out.println(Arrays.toString(removeDuplicates(input, 1)));
+    }
 
+    public static int[] removeDuplicates(int[] array, int key) {
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != key) {
+                array[index] = array[i];
+                index++;
+            }
+        }
+        return Arrays.copyOf(array, index);
     }
 }
