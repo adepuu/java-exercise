@@ -13,12 +13,8 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean isFound = false;
-        int attempt = 0;
-        System.out.print("Enter the file name: ");
-        String fileName = scanner.nextLine();
-        String path = "/Users/kurniawanmuhammadrizki/IdeaProjects/java-exercise-main/src/main/java/com/adepuu/exercises/session6/";
-        String filePath = path + fileName;
+        System.out.print("Enter the file path: ");
+        String filePath = scanner.nextLine();
         readFileContents(filePath);
         scanner.close();
     }
@@ -34,7 +30,6 @@ public class Exercise2 {
                 }
             }catch (FileNotFoundException e){
                 System.out.println("File not found at : " + fileName);
-
             }catch (IOException e){
                 System.out.println("Failed read file at : " + fileName);
             } finally {
