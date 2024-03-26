@@ -26,10 +26,11 @@ public class Exercise2 {
             }    
         } catch (FileNotFoundException e) {
             System.out.println("Sorry, file not found : " + e.getMessage());
-        } catch (IOException e){
-            System.out.println("Sorry, there is an error at input output");
-        } finally {
 
+        } catch (IOException e){
+            System.out.println("Sorry, there is an error at the file : " + e.getMessage());
+        } finally {
+            System.out.println("Thank you for using our service, good bye!");
         }
     }
 }
