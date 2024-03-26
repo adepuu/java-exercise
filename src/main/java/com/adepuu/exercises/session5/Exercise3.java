@@ -26,6 +26,8 @@ public class Exercise3 {
                     return true;
                 }
             }
+
+            i++;
         }
 
         return false;
