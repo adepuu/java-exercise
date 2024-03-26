@@ -17,6 +17,15 @@ public class Exercise1 {
      */
     public static void main(String[] args) {
         Scanner numInput = new Scanner(System.in);
+
+        double avgNum = countAverage(inputNumber(numInput));
+
+        System.out.println("This is your average numbers : " + avgNum );
+        numInput.close();
+    }
+
+
+    static ArrayList<Integer> inputNumber(Scanner numInput){
         ArrayList<Integer> nums = new ArrayList<Integer>();
         boolean isDone = false;
         
@@ -35,15 +44,20 @@ public class Exercise1 {
             }
         } while (!isDone);
 
-        int tempNum = 0;
-        int avgNum = 0;
+        System.out.println("This is your numbers : "+nums.toString());
+
+        return nums;
+    }
+
+
+    static double countAverage(ArrayList<Integer> nums){
+        double tempNum = 0;
+        double avgNum = 0;
         for(int number : nums){
             avgNum += number;
             tempNum += 1;
         }
 
-        System.out.println("This is your numbers : "+nums.toString());
-        System.out.println("This is your average numbers : " + (avgNum/tempNum) );
-        numInput.close();
+        return avgNum/tempNum;
     }
 }
