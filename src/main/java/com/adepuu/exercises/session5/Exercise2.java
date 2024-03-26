@@ -1,28 +1,35 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Exercise2 {
-    /**
-     * Java Array Program For Array Rotation
-     * Input: arr[] = {1, 2, 3, 4, 5, 6, 7},  d = 2
-     * Output:  3 4 5 6 7 1 2
-     * Explanation: d=2 so 2 elements are rotated to the end of the array. So, 1 2 is rotated back
-     * So, Final result: 3, 4, 5, 6, 7, 1, 2
-     */
-    public int[] rotateLeft(int[] input, int shiftPosition) {
-        int n = input.length;
-        // Create a temporary array to hold the shifted elements
-        int[] tempArray = new int[shiftPosition];
+  /**
+   * Java Array Program For Array Rotation
+   * Input: arr[] = {1, 2, 3, 4, 5, 6, 7},  d = 2
+   * Output:  3 4 5 6 7 1 2
+   * Explanation: d=2 so 2 elements are rotated to the end of the array. So, 1 2 is rotated back
+   * So, Final result: 3, 4, 5, 6, 7, 1, 2
+   */
 
-        // Copy the first 'shiftPosition' elements into the temporary array
-        System.arraycopy(input, 0, tempArray, 0, shiftPosition);
 
-        // Shift the rest of the elements in the original array by 'shiftPosition' places
-        for (int i = 0; i < n - shiftPosition; i++) {
-            input[i] = input[i + shiftPosition];
-        }
+  public static void rotateArray() {
+    int[] arr = {1, 2, 3, 4, 5, 6, 7};
+    int key = 2;
+    ArrayList<Integer> secondArr = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
 
-        // Copy the shifted elements from the temporary array back into the original array
-        System.arraycopy(tempArray, 0, input, n - shiftPosition, shiftPosition);
-        return input;
+
+    for (int i = 0; i < key; ++i) {
+      secondArr.add(secondArr.getFirst());
+      secondArr.remove(secondArr.getFirst());
     }
+    System.out.println("secondArr = " + secondArr);
+
+
+  }
+
+  public static void main(String[] args) {
+    rotateArray();
+  }
 }

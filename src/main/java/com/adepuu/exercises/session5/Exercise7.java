@@ -1,41 +1,51 @@
 package com.adepuu.exercises.session5;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Exercise7 {
     /**
      * Java String Program to Check Anagram
-     * <p>
+     *
      * Example 1:
      * Input: s = "anagram", t = "nagaram"
      * Output: true
-     * <p>
+     *
      * Example 2:
      * Input: s = "rat", t = "car"
      * Output: false
      */
-    public boolean isAnagram(String s, String t) {
-        // Check if both strings have the same length
-        if (s.length() != t.length()) {
+
+    public static boolean isAnagram () {
+        String first = "anagram";
+        String second = "nagaram";
+
+        int lengthFirst = first.length();
+        int lengthSecond = second.length();
+
+        if(lengthFirst != lengthSecond) {
             return false;
         }
 
-        // Convert strings to character arrays
-        char[] sArray = s.toCharArray();
-        char[] tArray = t.toCharArray();
+        String[] firstArr = first.split("");
+        String[] secondArr = second.split("");
 
-        // Sort both character arrays
-        Arrays.sort(sArray);
-        Arrays.sort(tArray);
+        Arrays.sort(firstArr);
+        Arrays.sort(secondArr);
 
-        // Compare sorted character arrays
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i] != tArray[i]) {
+        System.out.println("firstArr = " + Arrays.toString(firstArr));
+        System.out.println("secondArr = " + Arrays.toString(secondArr));
+
+        for (int i = 0; i < lengthFirst; ++i) {
+            if(!Objects.equals(firstArr[i], secondArr[i])){
                 return false;
             }
         }
 
-        // If all characters match, the strings are anagrams
         return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("result = " + isAnagram());
     }
 }

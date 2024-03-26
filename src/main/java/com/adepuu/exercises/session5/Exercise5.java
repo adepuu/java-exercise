@@ -1,46 +1,62 @@
 package com.adepuu.exercises.session5;
 
+import java.util.Arrays;
 
 public class Exercise5 {
-    public int[] sortNumbers(int[] numbers, SORT_DIRECTION direction) {
-        boolean swapped;
-        for (int i = 0; i < numbers.length - 1; i++) {
-            swapped = false;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                switch (direction) {
-                    case ASC -> {
-                        if (numbers[j] > numbers[j + 1]) {
-                            int temp = numbers[j];
-                            numbers[j] = numbers[j + 1];
-                            numbers[j + 1] = temp;
-                            swapped = true;
-                        }
-                    }
-                    case DESC -> {
-                        if (numbers[j] < numbers[j + 1]) {
-                            int temp = numbers[j];
-                            numbers[j] = numbers[j + 1];
-                            numbers[j + 1] = temp;
-                            swapped = true;
-                        }
-                    }
-                }
-            }
-            if (!swapped) break; // If no two elements were swapped by inner loop, then the array is sorted.
+  /**
+   * Java Array Program to sort array in increasing & decreasing order
+   * <p>
+   * Example 1:
+   * Input: [ 8, 7, 5, 2], direction = "asc"
+   * Output: [ 2, 5, 7, 8 ]
+   * <p>
+   * Example 2:
+   * Input: [ 8, 7, 5, 2], direction = "desc"
+   * Output: [ 8,7, 5, 2 ]
+   */
+
+  public static void sortAsc() {
+    int[] arr = {8, 7, 5, 2};
+    int n = arr.length;
+
+    for (int i = 0; i < n - 1; i++) {
+      int min_idx = i;
+      for (int j = i + 1; j < n; j++) {
+        if (arr[j] < arr[min_idx]) {
+          min_idx = j;
         }
-        return numbers;
+      }
+
+      int temp = arr[min_idx];
+      arr[min_idx] = arr[i];
+      arr[i] = temp;
     }
 
-    /**
-     * Java numbersay Program to sort numbersay in increasing & decreasing order
-     * <p>
-     * Example 1:
-     * Input: [ 8, 7, 5, 2], direction = “asc”
-     * Output: [ 2, 5, 7, 8 ]
-     * <p>
-     * Example 2:
-     * Input: [ 8, 7, 5, 2], direction = “desc”
-     * Output: [ 8,7, 5, 2 ]
-     */
-    public enum SORT_DIRECTION {ASC, DESC}
+    System.out.println("result = " + Arrays.toString(arr));
+  }
+
+  public static void sortDesc() {
+    int[] arr = {8, 6, 7, 5, 2};
+    int n = arr.length;
+
+    for (int i = 0; i < n - 1; i++) {
+      int max_idx = i;
+      for (int j = i + 1; j < n; j++) {
+        if (arr[j] > arr[max_idx]) {
+          max_idx = j;
+        }
+      }
+
+      int temp = arr[max_idx];
+      arr[max_idx] = arr[i];
+      arr[i] = temp;
+    }
+
+    System.out.println("result = " + Arrays.toString(arr));
+  }
+
+  public static void main(String[] args) {
+    sortAsc();
+    sortDesc();
+  }
 }

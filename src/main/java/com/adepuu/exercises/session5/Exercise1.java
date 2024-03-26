@@ -1,16 +1,42 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exercise1 {
-    public int getHighestNumber(int[] input) {
-        if (input.length == 0) return 0;
+  //    Write a Java Program to Find the Largest Element in Array
+//
+//    Input: [ 7, 2, 5, 1, 4]
+//    Output: 7
+  public static int findLargest() {
+    int[] arr = {7, 2, 5, 1, 4, 8, 1, 10};
+    int max_idx = 0;
 
-        int max = input[0]; // Initialize max with the first element of the array
-
-        for (int i = 1; i < input.length; i++) { // Start from the second element
-            if (input[i] > max) {
-                max = input[i]; // Update max if the current element is larger
-            }
-        }
-        return max;
+    for (int i = 1; i < arr.length; i++) {
+      if (arr[max_idx] < arr[i]) {
+        max_idx = i;
+      }
     }
+
+    return arr[max_idx];
+
+//        List<Integer> result = new ArrayList<>();
+//        for(int i = 0; i < arr.length; ++i){
+//            for (int j = i+1; j < arr.length; ++j ) {
+//                if (arr[i] > arr[j]) {
+//                    result.add(arr[i]);
+//                    break;
+//                } else {
+//                    result.add(arr[j]);
+//                }
+//
+//            }
+//        }
+//        return result.getLast();
+  }
+
+  public static void main(String[] args) {
+    System.out.println("result = " + findLargest());
+    ;
+  }
 }
