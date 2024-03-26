@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise1 {
-//    Write a Java Program to Find the Largest Element in Array
+  //    Write a Java Program to Find the Largest Element in Array
 //
 //    Input: [ 7, 2, 5, 1, 4]
 //    Output: 7
-    public static int findLargest () {
-        int[] arr= {7, 2, 5, 1, 4, 8, 1, 10};
-        int max_idx = 0;
+  public static int findLargest() {
+    int[] arr = {7, 2, 5, 1, 4, 8, 1, 10};
+    int max_idx = 0;
 
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[max_idx] < arr[i]){
-                max_idx = i;
-            }
-        }
+    for (int i = 1; i < arr.length; i++) {
+      if (arr[max_idx] < arr[i]) {
+        max_idx = i;
+      }
+    }
 
-        return arr[max_idx];
+    return arr[max_idx];
 
 //        List<Integer> result = new ArrayList<>();
 //        for(int i = 0; i < arr.length; ++i){
@@ -33,9 +33,10 @@ public class Exercise1 {
 //            }
 //        }
 //        return result.getLast();
-    }
+  }
 
-    public static void main(String[] args) {
-        System.out.println("result = " + findLargest());;
-    }
+  public static void main(String[] args) {
+    System.out.println("result = " + findLargest());
+    ;
+  }
 }

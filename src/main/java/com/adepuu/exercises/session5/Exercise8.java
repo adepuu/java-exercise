@@ -5,38 +5,40 @@ import java.util.Collections;
 import java.util.List;
 
 public class Exercise8 {
-    /**
-     * Java String Program to Find all Duplicates on Array
-     *
-     * Example 1:
-     * Input: nums = [4,3,2,7,8,2,3,1]
-     * Output: [2,3]
-     *
-     * Example 2:
-     * Input: nums = [1,1,2]
-     * Output: [1]
-     *
-     * Example 3:
-     * Input: nums = [1]
-     * Output: []
-     */
+  /**
+   * Java String Program to Find all Duplicates on Array
+   * <p>
+   * Example 1:
+   * Input: nums = [4,3,2,7,8,2,3,1]
+   * Output: [2,3]
+   * <p>
+   * Example 2:
+   * Input: nums = [1,1,2]
+   * Output: [1]
+   * <p>
+   * Example 3:
+   * Input: nums = [1]
+   * Output: []
+   */
 
-    public static List<Integer> findAllDuplicates () {
-        int[] arr = {4,3,2,7,8,2,3,1};
+  public static List<Integer> findAllDuplicates() {
+    int[] arr = {4, 3, 2, 7, 8, 2, 3, 1};
 
-        ArrayList<Integer> result = new ArrayList<>();
+    ArrayList<Integer> result = new ArrayList<>();
 
-        for(int i = 0; i < arr.length - 1; ++i) {
-            for (int j = i + 1; j < arr.length; ++j) {
-                if (arr[i]==arr[j]){
-                    result.add(arr[i]);
-                }
-            }
+    for (int i = 0; i < arr.length - 1; ++i) {
+      for (int j = i + 1; j < arr.length; ++j) {
+        if (arr[i] == arr[j]) {
+          result.add(arr[i]);
+          break;
         }
-        Collections.sort(result);
-        return result;
+      }
     }
-    public static void main(String[] args) {
-        System.out.println("result = " + findAllDuplicates());
-    }
+    Collections.sort(result);
+    return result;
+  }
+
+  public static void main(String[] args) {
+    System.out.println("result = " + findAllDuplicates());
+  }
 }
