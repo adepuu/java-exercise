@@ -8,19 +8,24 @@ public class Exercise1 {
 //
 //    Input: [ 7, 2, 5, 1, 4]
 //    Output: 7
-    public static void findLargest () {
-        int[] arr= {7, 2, 5, 1, 4};
-        List<Integer> result = new ArrayList<Integer>();
-        for(int i = 0; i < (arr.length - 1); ++i){
-            if(arr[i]> arr[i + 1]){
-                result.add(arr[i]);
+    public static int findLargest () {
+        int[] arr= {7, 2, 5, 1, 4, 8, 1, 10};
+        List<Integer> result = new ArrayList<>();
+        for(int i = 0; i < arr.length; ++i){
+            for (int j = i+1; j < arr.length; ++j ) {
+                if (arr[i] > arr[j]) {
+                    result.add(arr[i]);
+                    break;
+                } else {
+                    result.add(arr[j]);
+                }
+
             }
-            System.out.println("result = " + result);
-            return;
         }
+        return result.getLast();
     }
 
     public static void main(String[] args) {
-        findLargest();
+        System.out.println("result = " + findLargest());;
     }
 }
