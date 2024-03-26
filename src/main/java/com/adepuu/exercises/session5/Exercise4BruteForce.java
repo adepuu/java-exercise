@@ -23,6 +23,7 @@ public class Exercise4BruteForce {
             }
             if (!isDuplicate) {
                 data[index++] = data[i];
+
             }
         }
         return Arrays.copyOf(data, index);
