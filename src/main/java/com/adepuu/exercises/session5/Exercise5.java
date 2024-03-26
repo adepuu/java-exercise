@@ -20,7 +20,7 @@ public class Exercise5 {
         int n = 4;
         int[] array = new int[n];
 
-        System.out.println("Input Array number to Ascending: ");
+        System.out.println("Input Array number to Descendin: ");
         for (int i = 0; i < n; i++) {
             array[i] = input.nextInt();
             System.out.print(array[i]+" ");
@@ -28,7 +28,7 @@ public class Exercise5 {
 
         System.out.println();
 
-        System.out.println("Input Array number to Descending: ");
+        System.out.println("Input Array number to Ascending: ");
         for (int i = 0; i < n; i++)
             array[i] = input.nextInt();
             for (int j = n - 1; j >= 0; j--)

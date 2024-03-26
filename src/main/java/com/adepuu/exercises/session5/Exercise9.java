@@ -1,6 +1,10 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
 
 public class Exercise9 {
     /**
@@ -22,12 +26,27 @@ public class Exercise9 {
         Scanner input = new Scanner(System.in);
 
         int n = input.nextInt();
-        int[] temperature = new int[n];
+        int[] temprature = new int[n];
+        List<Integer> tempResult = new ArrayList<>();
+
+        int gap = 0, count = 0;
 
         for (int i = 0; i < n; i++){
-            temperature[i] = input.nextInt();
+            temprature[i] = input.nextInt();
         }
 
-
+        for (int j = 0; j < temprature.length; j++){
+            gap = 0;
+            count = 0;
+            for (int k = j + 1; k < temprature.length; k++){
+                if (temprature[j] < temprature[k]){
+                    gap+=count+1;
+                    break;
+                }
+                count+=1;
+            }
+            tempResult.add(gap);
+        }
+        System.out.println(tempResult);
     }
 }
