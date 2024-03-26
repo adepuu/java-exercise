@@ -1,7 +1,6 @@
 package com.adepuu.exercises.session5;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
 public class Exercise8 {
