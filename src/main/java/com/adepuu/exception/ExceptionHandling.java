@@ -11,12 +11,34 @@ public class ExceptionHandling {
     }
 
     static void arrayOutOfBound() {
+        funcA();
+    }
+
+    static void funcA() {
+        funcB();
+    }
+
+    static void funcB() {
+        funcC();
+    }
+
+    static void funcC() {
+        funcD();
+    }
+
+    static void funcD() {
+        int result = 0;
+        int[] arr = {1, 2, 3};
+
         try {
-            int[] arr = {1, 2, 3};
+            result = arr[5];
             System.out.println(arr[5]); // Throws ArrayIndexOutOfBoundsException
         } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+            result = arr[arr.length-1];
             System.out.println("Tried to access index out of bound");
         }
+        System.out.println(result);
     }
     static void fileReader() {
         try {

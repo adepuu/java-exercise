@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Exercise2 {
+    /**
+     * Complete the file reader program below
+     * and handle all edge cases using try-catch-finally based on the logic given
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the file name: ");
