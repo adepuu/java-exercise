@@ -11,7 +11,7 @@ public class Exercise1 {
     public static void average() {
 
         Scanner scanner = new Scanner(System.in);
-        String status = "";
+
         int sum = 0;
         int count = 0;
 
