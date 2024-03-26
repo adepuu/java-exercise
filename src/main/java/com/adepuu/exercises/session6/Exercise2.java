@@ -11,11 +11,17 @@ public class Exercise2 {
      * Complete the file reader program below
      * and handle all edge cases using try-catch-finally based on the logic given
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the file name: ");
         String fileName = scanner.nextLine();
-        readFileContents(fileName);
+        try {
+            readFileContents(fileName);
+        } catch (IOException e) {
+            System.err.println("File not found");
+        } finally {
+            System.out.println("end here");
+        }
         scanner.close();
     }
 

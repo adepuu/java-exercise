@@ -20,6 +20,7 @@ public class Exercise1 {
         int sum = 0;
         int count = 0;
 
+        System.out.println("Input here: ");
         while (true){
             String strInput = input.next();
             if (strInput.equals("q")){
@@ -36,7 +37,7 @@ public class Exercise1 {
 
         if (count > 0){
             double avgNumber = (double) sum / count;
-            System.out.println((int)Math.round(avgNumber));
+            System.out.println("The average number: "+(int)Math.round(avgNumber));
         } else {
             System.out.println("invalid");
         }
