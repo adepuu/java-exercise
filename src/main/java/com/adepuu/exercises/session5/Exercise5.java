@@ -1,13 +1,14 @@
 package com.adepuu.exercises.session5;
 
+
 public class Exercise5 {
     /**
-     * Java Array Program to sort array in increasing & decreasing order
-     *
+     * Java numbersay Program to sort numbersay in increasing & decreasing order
+     * <p>
      * Example 1:
      * Input: [ 8, 7, 5, 2], direction = “asc”
      * Output: [ 2, 5, 7, 8 ]
-     *
+     * <p>
      * Example 2:
      * Input: [ 8, 7, 5, 2], direction = “desc”
      * Output: [ 8,7, 5, 2 ]
