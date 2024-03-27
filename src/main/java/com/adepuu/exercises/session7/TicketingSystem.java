@@ -41,6 +41,7 @@ public class TicketingSystem {
             System.out.println("Press '3' to check event quota");
             System.out.println("Press '4' to check all user");
             System.out.println("Press '5' to buy ticket");
+            System.out.println("Press '6' to check purchased ticket");
             System.out.println("Press anything to quit");    
             System.out.println(" ");    
             System.out.print("My choice : ");    
@@ -64,13 +65,17 @@ public class TicketingSystem {
                     System.out.println(" ");
                 break;
                 case "5":
-                    createTicket(myScanner);;
+                    createTicket(myScanner);
+                    System.out.println(" ");
+                break;
+                case "6":
+                    purchasedTicket();
                     System.out.println(" ");
                 break;
                 default:
                     break;
             }
-        } while (userChoice.equals("1") || userChoice.equals("2") || userChoice.equals("3") || userChoice.equals("4") || userChoice.equals("5"));
+        } while (userChoice.equals("1") || userChoice.equals("2") || userChoice.equals("3") || userChoice.equals("4") || userChoice.equals("5") || userChoice.equals("6"));
         
     }
 
@@ -81,7 +86,11 @@ public class TicketingSystem {
         User newUser= new User(myScanner.nextLine());
         System.out.println("Hello, user " + newUser.getUserName() + " created!");
         userList.add(newUser);
-        
+         
+        System.out.print("Create another User? (press y to continue) : ");
+        if(myScanner.nextLine().equals("y")){
+            createUser(myScanner);
+        }
     }
 
     public static void createEvent(Scanner myScanner){
@@ -95,6 +104,11 @@ public class TicketingSystem {
 
         System.out.println("Event " + newEvent.getEventName() + " with " + newEvent.getEventQuota() + " quota created!");
         eventList.add(newEvent);
+
+        System.out.print("Create another Event? (press y to continue) : ");
+        if(myScanner.nextLine().equals("y")){
+            createEvent(myScanner);
+        }
     }
 
     public static void checkQuota(){
@@ -110,6 +124,14 @@ public class TicketingSystem {
         for (User user : userList) {
             userId += 1;
             System.out.println(userId + ". " + user.getUserName());
+        }
+    }
+
+    public static void purchasedTicket(){
+        int ticketId = 0;
+        for (Ticket ticket : ticketList) {
+            ticketId += 1;
+            System.out.println(ticketId + ". " + ticket.getTicketUser().getUserName() + " buy a ticket for " + ticket.getTicketEvent().getEventName());
         }
     }
 
@@ -144,6 +166,10 @@ public class TicketingSystem {
         myScanner.nextLine();
         System.out.println(" ");
         System.out.println(newTicket.getTicketUser().getUserName() + " buy a ticket for "+ newTicket.getTicketEvent().getEventName());
+        System.out.print("Buy another ticket? (press y to continue) : ");
+        if(myScanner.nextLine().equals("y")){
+            createTicket(myScanner);
+        }
     }
 
 }
