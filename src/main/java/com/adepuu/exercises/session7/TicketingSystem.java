@@ -1,5 +1,8 @@
 package com.adepuu.exercises.session7;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TicketingSystem {
     /**
      * Write a Java Program using OOP about simple ticketing system for an event.
@@ -18,7 +21,129 @@ public class TicketingSystem {
      * <p>
      * Start your project from the main method below ;) have fun!
      */
-    public static void main(String[] args) {
+    private String ticketID;
+    private String eventName;
+    private double price;
 
+    private static ArrayList<User> userList = new ArrayList<User>();
+    private static ArrayList<Event> eventList = new ArrayList<Event>();
+    private static ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
+
+    public static void main(String[] args) {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Welcome to Event Ticketing System!");
+        String userChoice = "";
+
+        do {
+            System.out.println("What do you want to do?");
+            System.out.println("Press '1' to create user");
+            System.out.println("Press '2' to create event");
+            System.out.println("Press '3' to check event quota");
+            System.out.println("Press '4' to check all user");
+            System.out.println("Press '5' to buy ticket");
+            System.out.println("Press anything to quit");    
+            System.out.println(" ");    
+            System.out.print("My choice : ");    
+            userChoice = myScanner.nextLine();
+            System.out.println(" ");    
+            switch (userChoice) {
+                case "1":
+                    createUser(myScanner);
+                    System.out.println(" ");
+                break;
+                case "2":
+                    createEvent(myScanner);
+                    System.out.println(" ");
+                break;
+                case "3":
+                    checkQuota();
+                    System.out.println(" ");
+                break;
+                case "4":
+                    checkMember();
+                    System.out.println(" ");
+                break;
+                case "5":
+                    createTicket(myScanner);;
+                    System.out.println(" ");
+                break;
+                default:
+                    break;
+            }
+        } while (userChoice.equals("1") || userChoice.equals("2") || userChoice.equals("3") || userChoice.equals("4") || userChoice.equals("5"));
+        
     }
+
+    public static void createUser(Scanner myScanner){
+        System.out.println("Create User ");
+        System.out.print("Input user name : ");
+        
+        User newUser= new User(myScanner.nextLine());
+        System.out.println("Hello, user " + newUser.getUserName() + " created!");
+        userList.add(newUser);
+        
+    }
+
+    public static void createEvent(Scanner myScanner){
+        System.out.println("Create Event ");
+        System.out.print("Input event name : ");
+        String eventName = myScanner.nextLine();
+        System.out.print("How much quota? : ");
+        int eventQuota = myScanner.nextInt();
+        myScanner.nextLine();
+        Event newEvent = new Event(eventName, eventQuota);
+
+        System.out.println("Event " + newEvent.getEventName() + " with " + newEvent.getEventQuota() + " quota created!");
+        eventList.add(newEvent);
+    }
+
+    public static void checkQuota(){
+        int eventId = 0;
+        for (Event event : eventList) {
+            eventId += 1;
+            System.out.println(eventId + ". " + event.getEventName()+ " have "+event.getEventQuota()+" quota left");
+        }
+    }
+
+    public static void checkMember(){
+        int userId = 0;
+        for (User user : userList) {
+            userId += 1;
+            System.out.println(userId + ". " + user.getUserName());
+        }
+    }
+
+    public static void createTicket(Scanner myScanner){
+        System.out.println("Buy Ticket ");
+        
+        System.out.println("Who this ticket for ?");
+        checkMember();
+        System.out.println(" ");
+        System.out.print("Type the user number to choose : ");
+        int userId = myScanner.nextInt()-1;
+        System.out.println(" ");
+        
+        System.out.println("Which event ?");
+
+        int eventId = 0;
+        do {
+            checkQuota();
+            System.out.println(" ");
+            System.out.print("Type the event number to choose : ");
+            eventId = myScanner.nextInt()-1;
+            if(eventList.get(eventId).getEventQuota() == 0){
+                System.out.println("The event has no more quota, choose another event");
+                System.out.println(" ");
+            }
+        } while (eventList.get(eventId).getEventQuota() == 0);
+        
+
+        Ticket newTicket = new Ticket(eventList.get(eventId), userList.get(userId));
+        ticketList.add(newTicket);
+
+        myScanner.nextLine();
+        System.out.println(" ");
+        System.out.println(newTicket.getTicketUser().getUserName() + " buy a ticket for "+ newTicket.getTicketEvent().getEventName());
+    }
+
 }
