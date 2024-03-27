@@ -19,6 +19,25 @@ public class TicketingSystem {
      * Start your project from the main method below ;) have fun!
      */
     public static void main(String[] args) {
+        int maxTicket = 10;
 
+        // User book ticket for an event
+        Event event = new Event(maxTicket);
+
+        User user = new User("Adepuu");
+
+        // User book ticket for an event
+        var bookingStatus = event.bookTicket(user.getID());
+        if (bookingStatus) {
+            var confirmedTicket = event.confirmTicket(user.getID());
+            if (confirmedTicket != null) {
+                user.saveTicket(confirmedTicket);
+            }
+        }
+
+        var accuiredTicket = user.getTicket();
+        if (accuiredTicket != null) {
+            System.out.println(accuiredTicket.getID() + "   Event ID: " + accuiredTicket.getEventID());
+        }
     }
 }
