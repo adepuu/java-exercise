@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session7;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class TicketingSystem {
     /**
      * Write a Java Program using OOP about simple ticketing system for an event.
@@ -19,6 +23,52 @@ public class TicketingSystem {
      * Start your project from the main method below ;) have fun!
      */
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        BookingSystem bookingSystem = new BookingSystem();
 
+        // Event creation
+        bookingSystem.createEvent("TI 2024", 50,20.0);
+        bookingSystem.createEvent("Java Jazz 2024", 40, 25.0);
+        bookingSystem.createEvent("WC Final 2024", 50, 30.0);
+
+        List<String> events = bookingSystem.getEventList();
+
+        System.out.println("Welcome to our booking system!");
+        System.out.print("Please enter your name: ");
+
+        String username = input.nextLine();
+
+        System.out.println("Events list");
+        System.out.println("====================");
+        for (int i = 0; i < events.size(); i++) {
+            System.out.println((i + 1) + " " + events.get(i));
+        }
+        System.out.println("====================");
+        System.out.println("Which event you want to attend? Please enter the event name");
+
+        String userEvent = input.nextLine();
+
+        System.out.println("====================");
+        System.out.println("Please enter the amount you paid: ");
+        double amountPaid = input.nextDouble();
+        input.nextLine();
+
+        // Booking ticket
+        bookingSystem.bookTicket(userEvent, amountPaid, username);
+
+        // Get booking confirmation
+        System.out.println("================");
+        System.out.println("So you want to print your booking confirmation? (y/n)");
+        String choice = input.nextLine();
+        if (choice.equals("y")) {
+            System.out.println("================");
+            System.out.println("Here is your booking confirmation");
+            bookingSystem.bookedTicketStatus(username);
+            System.out.println("Thank you and have a nice day!");
+        } else {
+            System.out.println("Thank you and have a nice day!");
+        }
+        input.close();
     }
 }
+
