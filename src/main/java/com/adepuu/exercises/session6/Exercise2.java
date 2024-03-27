@@ -35,7 +35,7 @@ public class Exercise2{
             reader = new BufferedReader(new FileReader(fileName));
         }
         catch(FileNotFoundException e){
-            System.out.println("\u001B[31m" +"File is not found: " + e.getMessage() + "\u001B[0m");
+            System.err.println("\u001B[31m" +"File is not found: " + e.getMessage() + "\u001B[0m");
             main(new String[0]);
         }
         finally
