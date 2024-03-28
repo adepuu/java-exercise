@@ -1,5 +1,12 @@
 package com.adepuu.exercises.session8;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.adepuu.exercises.session8.controller.*;
+import com.adepuu.exercises.session8.model.TaskManagement;
+import com.adepuu.exercises.session8.model.User;
+
 public class App {
     /**
      * Manages user registration, login, and task management for the To-Do List application.
@@ -45,5 +52,101 @@ public class App {
          Connect all the functionalities with the related menu ;)
          GL HF! ;)
         */
+        Scanner myScanner = new Scanner(System.in);
+        startMenu(myScanner);
     }
+
+
+    public static void startMenu(Scanner myScanner){
+        System.out.println(" ");
+        System.out.println("Welcome to Task Management System!");
+        System.out.println("Do you want to sign in or sign up?");
+        System.out.println(" Press '1' to Sign Up");
+        System.out.println(" Press '2' to Sign In");
+        System.out.println(" Press anything to Quit");
+        System.out.println(" ");
+        System.out.print("I want to : ");
+
+        switch (myScanner.nextLine()) {
+            case "1":
+                System.out.println(" ");
+                UserController.userSignUp(myScanner);
+                System.out.println(" ");
+                break;
+                case "2":
+                System.out.println(" ");
+                System.out.println("User Sign In!");
+                UserController.userSignIn(myScanner);
+                break;
+            default:
+                System.exit(0);
+                break;
+        }
+    }
+
+
+    public static void mainMenu(Scanner myScanner, User user){
+        System.out.println(" ");
+        System.out.println(" ");
+        ArrayList<TaskManagement> userTask = TaskManagement.getAllTask(user);
+        if(userTask.size() > 0)
+            System.out.println("Hello "+ user.getUserName() +", This is your to do!");
+        else
+            System.out.println("Hello "+ user.getUserName() +", You have no task today!");
+        
+        int taskNumber = 0;
+        for (TaskManagement task : userTask) {
+            taskNumber +=1;
+            System.out.println(taskNumber + ". " + task.getTaskName());
+        }
+
+        System.out.println(" ");
+        do {
+            System.out.println("What do you want to do today?");
+            System.out.println("Press '1' to Completing my task");
+            System.out.println("Press '2' to Create a new task");
+            System.out.println("Press '3' to Remove a task");
+            System.out.println("Press '4' to Check my completed task");
+            System.out.println("Press '5' to logout");
+            System.out.println(" ");    
+            System.out.print("I'm want to.. : ");    
+            String userChoice = myScanner.nextLine();
+            System.out.println(" ");    
+            switch (userChoice) {
+                case "1":
+                    if(taskNumber < 1){
+                        System.out.println("You still don't have any task, try to create one!");
+                        System.out.println(" ");
+                    }else{
+                        TaskController.completingTask(myScanner, user, userTask);
+                        System.out.println(" ");
+                    }
+                break;
+                case "2":
+                    TaskController.createTask(myScanner, user);
+                    System.out.println(" ");
+                break;
+                case "3":
+                    TaskController.removeTask(myScanner, user, userTask);
+                    System.out.println(" ");
+                break;
+                case "4":
+                    TaskController.checkCompleted(myScanner, user);
+                    System.out.println(" ");
+                break;
+                case "5":
+                    System.out.println(" ");
+                    System.out.println("Thanks for using our app! See you later!");
+                    System.out.println(" ");
+                    startMenu(myScanner);
+                    
+                break;
+                default:
+                    System.out.println("There is no "+ userChoice +" menu, please select another menu");
+                    System.out.println(" ");
+                    break;
+            }
+        } while (true);
+    }
+    
 }
