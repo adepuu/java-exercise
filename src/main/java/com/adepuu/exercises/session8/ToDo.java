@@ -22,6 +22,8 @@ public class ToDo {
   public void addTask(String description) {
     Task task = new Task(description);
     tasks.add(task);
+    System.out.println("Task created successfully!");
+    System.out.println();
   }
 
   // method to delete tasks
@@ -35,14 +37,13 @@ public class ToDo {
   // method to view tasks
   public void viewTasks() {
     // check if there's task in the todo
-    if (tasks.size() == 0) {
+    if (tasks.isEmpty()) {
       System.out.println("No tasks found!");
     } else {
-      for (Task task : tasks) {
-        int num = 1;
-        String status = task.isCompleted() ? "[x]" : "[ ]";
-        System.out.println(num + ". " + status + " " + task.getDescription());
-        num++;
+      System.out.println("Here are your tasks:");
+      for (int i = 0; i < tasks.size(); i++) {
+        String status = tasks.get(i).isCompleted() ? "[x]" : "[ ]";
+        System.out.println(i + ". " + status + " " + tasks.get(i).getDescription());
       }
     }
   }

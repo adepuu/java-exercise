@@ -5,18 +5,22 @@ import java.util.Scanner;
 
 public class Authentication {
 
-  private HashMap<String, String> userPair = new HashMap<>();
-  private HashMap<String, User> userPassPair = new HashMap<>();
+  private final HashMap<String, String> userPair = new HashMap<>();
+  private final HashMap<String, User> userPassPair = new HashMap<>();
   private User currentUser;
 
   // Scanner to prompt user input
-  private Scanner scan;
-  private App app; // need to be looked at again
+  private final Scanner scan = new Scanner(System.in);
+  private App app; // redirect user to log in menu
 
   public Authentication() {
     // initialize currentUser to null to set that no one is logged in
     this.currentUser = null;
-    this.scan = new Scanner(System.in);
+  }
+
+  // getter
+  public User getCurrentUser() {
+    return currentUser;
   }
 
   // login method
@@ -29,6 +33,7 @@ public class Authentication {
       System.out.print("Password: ");
       String password = scan.nextLine();
       String loginKey = username + password;
+      System.out.println();
 
       // Use try catch method to handle errors
       try {
@@ -42,6 +47,7 @@ public class Authentication {
         } else {
           throw new Exception();
         }
+        System.out.println();
       } catch (Exception eLogin) {
         if (!userPassPair.containsKey(username)) {
           System.out.println("Username doesn't exist! Please try again");
@@ -66,6 +72,7 @@ public class Authentication {
       System.out.print("New Password: ");
       String password = scan.nextLine();
       String loginKey = username + password;
+      System.out.println();
 
       try {
         // Check if username exists
@@ -76,12 +83,14 @@ public class Authentication {
           this.userPair.put(username, password);
           isRegistered = true;
           System.out.println("Register successful! Please sign in.");
+          System.out.println();
           // when using this method later, please redirect it to the login screen
           app.loginMenu(); // use callback to login method
           // this still doesn't work
         } else {
           throw new Exception();
         }
+        System.out.println();
       } catch (Exception eReg) {
         System.out.println("Username already exists! Please try again.");
       }
@@ -93,5 +102,7 @@ public class Authentication {
   public void logout() {
     this.currentUser = null;
     System.out.println("You have been logged out!");
+    System.out.println("Exiting program...");
+    System.exit(0);
   }
 }
