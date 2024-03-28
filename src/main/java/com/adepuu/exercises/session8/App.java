@@ -1,5 +1,8 @@
 package com.adepuu.exercises.session8;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class App {
     /**
      * Manages user registration, login, and task management for the To-Do List application.
@@ -45,5 +48,20 @@ public class App {
          Connect all the functionalities with the related menu ;)
          GL HF! ;)
         */
+        Scanner scanner = new Scanner(System.in);
+        Auth auth = new Auth();
+        Todo todoUser = new Todo();
+
+        while (true){
+            auth.authPrompt(scanner, auth);
+            if (auth.isLoggedIn()){
+                todoUser.todoPrompt(scanner, auth, todoUser);
+            } else {
+                System.out.println("\n");
+            }
+        }
+
+
+
     }
 }
