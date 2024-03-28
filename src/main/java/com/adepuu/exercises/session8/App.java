@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session8;
 
+import java.io.Console;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class App {
     /**
      * Manages user registration, login, and task management for the To-Do List application.
@@ -35,11 +39,105 @@ public class App {
      *     <li>Split each functionalities into its own classes</li>
      * </ul>
      */
+    public static int toDoListScreen(){
+        int choice = 0;
+        Scanner myInput = new Scanner(System.in);
+        while (true) {
+            System.out.println("----------------To-Do List APP----------------");
+            System.out.println("1. Add New Task ");
+            System.out.println("2. Display Task ");
+            System.out.println("3. Delete Task  ");
+            System.out.println("4. Log Out  ");
+            System.out.println();
+            System.out.print("Choice : ");
+            try{
+                choice = myInput.nextInt();
+            }catch (InputMismatchException e){
+                System.err.println("Please input the right value");
+            }finally {
+                return choice;
+            }
+        }
+    }
+    public static int LoginScreen(){
+        Scanner myInput = new Scanner(System.in);
+        int input = 0;
+        System.out.println();
+        while (true){
+            System.out.println("----------------To-Do List APP----------------");
+            System.out.println("1. Login");
+            System.out.println("2. Register (For a new user)");
+            System.out.println("3. Exit");
+            System.out.print("Choice : ");
+            try{
+                input= myInput.nextInt();
+            }catch (InputMismatchException e){
+                System.err.println("Please input the right value");
+            }finally {
+                return input;
+            }
+        }
+    }
     public static void main(String[] args) {
+        Scanner myInput = new Scanner(System.in);
+        Auth auth = new Auth();
+        Todo task = new Todo();
+        boolean loop = false;
         // Create menu functionalities
         // Split classes
         // Make methods
         // Connect all the functionalities with the related menu ;)
         // GL HF! ;)
+        while (!loop){
+            int input = LoginScreen();
+            switch (input){
+                case 1 :
+                    System.out.println("----------------Login----------------");
+                    System.out.print("Username \t : ");
+                    String usernameLogin = myInput.nextLine();
+                    System.out.print("Password \t : ");
+                    String passwordLogin = myInput.nextLine();
+                    auth.userLogin(usernameLogin,passwordLogin);
+                        while (!auth.userDetail().isEmpty()){
+                            int choice = toDoListScreen();
+                            switch (choice){
+                                case 1 :
+                                    System.out.println("----------------Add New Task----------------");
+                                    System.out.print("Task Name :  ");
+                                    String name = myInput.nextLine();
+                                    task.createNewTask(auth.userDetail(),name);
+                                    break;
+                                case 2 :
+                                    System.out.println("----------------Task----------------");
+                                    task.displayAllTask(auth.userDetail());
+                                    System.out.println();
+                                    break;
+                                case 3:
+                                    System.out.println("-----------------Delete Task-----------------");
+                                    task.displayDeleteTask(auth.userDetail());
+                                    System.out.print("Choose task to delete : ");
+
+                                    String delete = myInput.nextLine();
+                                    task.deleteTask(delete);
+                                    break;
+
+                                case 4 : auth.logout();
+                                         break;
+
+                            }
+                        }
+                    break;
+                case 2:
+                    System.out.println("----------------Register----------------");
+                    System.out.print("Username \t : ");
+                    String username = myInput.nextLine();
+                    System.out.print("Password \t : ");
+                    String password = myInput.nextLine();
+                    auth.createNewUser(username,password);
+                    break;
+                case 3:loop = true;
+                      break;
+            }
+        }
     }
 }
