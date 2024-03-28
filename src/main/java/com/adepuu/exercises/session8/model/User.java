@@ -1,17 +1,18 @@
 package com.adepuu.exercises.session8.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class User {
     private static ArrayList<User> userList = new ArrayList<User>();
-    private String userId;
+    private UUID userId;
     private String userName;
     private String password;
 
     public User(String userName, String password){
+        this.userId = UUID.randomUUID();
         this.userName = userName;
         this.password = password;
-        this.userId = "US-";
     }
 
     public String getUserName(){

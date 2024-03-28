@@ -1,9 +1,10 @@
 package com.adepuu.exercises.session8.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class TaskManagement {
-    private String taskId;
+    private UUID taskId;
     private User userId;
     private String taskName;
     private boolean isCompleted;
@@ -11,9 +12,9 @@ public class TaskManagement {
     private static ArrayList<TaskManagement> taskListDone = new ArrayList<TaskManagement>();
 
     public TaskManagement(String taskName, User user){
+        this.taskId = UUID.randomUUID();
         this.taskName = taskName;
         this.isCompleted = false;
-        this.taskId = "";
         this.userId = user;
     }
 
