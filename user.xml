@@ -1,0 +1,20 @@
+
+
+<user>
+    <id>068d672d-5fcc-4b95-9447-e28348f39cfc</id>
+    <username>kuki</username>
+    <password>kukipass</password>
+    <todoID>36312c4b-0160-4ffb-b62c-5ac15b811c54</todoID>
+</user>
+<user>
+    <id>5436022b-eb34-452a-a3fa-7c2bbc3f0033</id>
+    <username>iki</username>
+    <password>ikipass</password>
+    <todoID>b00ff16d-b691-4544-99c8-9ad178ea80ed</todoID>
+</user>
+<user>
+    <id>34e9d46e-c5ec-40fb-bc21-d97f7ced9ac9</id>
+    <username>test</username>
+    <password>testpass</password>
+    <todoID>ea8926fd-8be7-484d-b384-b320efbeefd2</todoID>
+</user>

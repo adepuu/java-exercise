@@ -6,16 +6,23 @@ public class User {
 
     private final String ID;
     private final String username;
-    private final String password;
+    private String password ="";
     private final String todoID;
 
-    public User(String username, String password) {
+     User(String username, String password) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.username = username;
         this.password = password;
         this.todoID = uuid.toString();
     }
+    User(String userID, String username, String todoID) {
+
+        this.ID = userID;
+        this.username = username;
+        this.todoID = todoID;
+    }
+
 
     public String getID() {
         return ID;

@@ -1,6 +1,9 @@
 package com.adepuu.exercises.session8;
 
+import java.util.*;
+
 public class App {
+    public static Scanner scanner = new Scanner(System.in);
     /**
      * Manages user registration, login, and task management for the To-Do List application.
      * <p>
@@ -38,6 +41,7 @@ public class App {
      * </ul>
      */
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         /*
          Create menu functionalities
          Split classes
@@ -45,5 +49,53 @@ public class App {
          Connect all the functionalities with the related menu ;)
          GL HF! ;)
         */
+        String[] userLogin = Menu.loginMenu();
+        if(Objects.equals(userLogin[0], "admin") && Objects.equals(userLogin[1], "admin")){
+            String[] userData = Auth.createUser();
+            Todo.createTodo(userData[1], userData[0]);
+            return;
+        }
+        String userID = Auth.login(userLogin[0], userLogin[1]);
+        //String userID = null;
+        if(userID == null){
+            System.out.println("Username or password not correct");
+        } else {
+            User user = Auth.getUserByUserId(userID);
+            assert user != null;
+
+            do {
+                Menu menu = new Menu();
+                menu.mainMenu();
+                System.out.print("Your input : ");
+                //input.nextLine();
+                int choose = input.nextInt();
+                System.out.println("=================================");
+
+                switch (choose) {
+                    case 1:
+                        String taskBody = menu.createTaskMenu();
+                        String taskId = Task.createTask(taskBody);
+                        Todo todo = new Todo(user.getTodoId(), Collections.singletonList(taskId), user.getID());
+                        Todo.addTaskTOtodoId(todo.getID(),todo.getLastTaskId());
+                        System.out.println("taskBody" + taskBody);
+                        System.out.println("taskId" + taskId);
+                        break;
+                    case 2:
+                        System.out.println("List Task" );
+                        Task.printTasksByUserId(user.getID());
+                        break;
+                    case 3:
+                        System.out.println("Delete Task" );
+                        Task.deleteTaskByUserId(user.getID());
+                        break;
+                    default:
+                        System.out.println("INVALID INPUT");
+                }
+            } while (Menu.isContinue().equalsIgnoreCase("y"));
+
+            input.close();
+        }
+
     }
+
 }
