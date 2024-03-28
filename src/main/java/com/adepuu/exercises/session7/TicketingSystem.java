@@ -1,5 +1,14 @@
 package com.adepuu.exercises.session7;
 
+import com.adepuu.exercises.session7.Event;
+import com.adepuu.exercises.session7.User;
+import com.adepuu.exercises.session7.Ticket;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.UUID;
+
 public class TicketingSystem {
     /**
      * Write a Java Program using OOP about simple ticketing system for an event.
@@ -19,6 +28,65 @@ public class TicketingSystem {
      * Start your project from the main method below ;) have fun!
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        // Create an event
+        System.out.println("Enter event name: ");
+        String eventName = scanner.nextLine();
+        System.out.println("Enter ticket quota: ");
+        int ticketQuota = scanner.nextInt();
+        Event event = new Event(ticketQuota);
+
+        // Create users
+        List<User> users = new ArrayList<>();
+        System.out.println("Enter number of users: ");
+        int numUsers = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+        for (int i = 0; i < numUsers; i++) {
+            System.out.println("Enter user name for user " + (i + 1) + ": ");
+            String userName = scanner.nextLine();
+            users.add(new User(UUID.randomUUID().toString(), userName));
+        }
+
+        // Buy tickets for each user
+        for (User user : users) {
+            int quantity;
+            while (true) {
+                System.out.println("Enter number of tickets to buy for user " + user.getUserName() + ": ");
+                quantity = scanner.nextInt();
+                scanner.nextLine(); // Consume newline character
+                if (quantity > event.getTicketAvailability()) {
+                    System.out.println("The ticket only has " + event.getTicketAvailability() + ", please buy the ticket based on the current quota.");
+                } else {
+                    event.sellTicket(quantity);
+                    for (int i = 0; i < quantity - 1; i++) {
+                        event.sellTicket(quantity);
+                    }
+                    break;
+                }
+            }
+            for (int i = 0; i < quantity; i++) {
+                Ticket ticket = new Ticket(event.getEventId(), eventName);
+                user.buyTicket(ticket, quantity);
+            }
+        }
+
+        // Check ticket validity for each user
+        for (User user : users) {
+            System.out.println("Tickets bought by " + user.getUserName() + ":");
+            for (Ticket ticket : user.getTicketsBought()) {
+                System.out.println("Ticket ID: " + ticket.getTicketId() + ", Event: " + ticket.getEventName());
+            }
+
+            System.out.println("Do you want to check your ticket validity, " + user.getUserName() + "? (yes/no)");
+            String checkTicketOption = scanner.nextLine();
+            if (checkTicketOption.equalsIgnoreCase("yes")) {
+                System.out.println("Enter ticket ID: ");
+                String ticketId = scanner.nextLine();
+                user.checkTicket(ticketId);
+            }
+        }
+
+        scanner.close();
     }
 }
