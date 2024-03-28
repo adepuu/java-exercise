@@ -34,7 +34,7 @@ public class App {
      *     <li>Start the program menu inside main function below</li>
      *     <li>Split each functionalities into its own classes</li>
      *     <li>Please Use UUID if there's ID needed <a href="https://www.baeldung.com/java-uuid">Java UUID Reference</a></li>
-     *     <li>Data should not be stored in a File. Let the data gone when program finished</li>
+     *     <li>Data does not need to be stored in a File. Let the data gone when program finished</li>
      * </ul>
      */
     public static void main(String[] args) {
