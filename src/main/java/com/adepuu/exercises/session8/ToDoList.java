@@ -20,9 +20,13 @@ public class ToDoList {
 
     public void removeTask(int task) {
         for (int i = 0; i < tasks.size(); i++) {
-            if (i == task) {
-                tasks.remove(i - 1);
-            }
+            tasks.remove(task - 1);
+        }
+    }
+
+    public void editTask(int taskIndex, String editedTask) {
+        for (int i = 0; i < tasks.size(); i++) {
+            tasks.set(taskIndex - 1, editedTask);
         }
     }
 }

@@ -78,20 +78,37 @@ public class App {
                     if (currentUser == null) {
                         System.out.println("\nPlease log in to your account");
                     } else {
-                        System.out.println("\n===Add to-do list===");
-                        System.out.println("Please enter your new list: ");
-                        String newList = input.nextLine();
-                        addToDoList(newList);
+                        viewToDoList();
                     }
                     break;
                 case 4:
                     if (currentUser == null) {
                         System.out.println("\nPlease log in to your account");
                     } else {
-                        viewToDoList();
+                        System.out.println("\n===Add to-do list===");
+                        System.out.println("Please enter your new list: ");
+                        String newList = input.nextLine();
+                        addToDoList(newList);
                     }
                     break;
                 case 5:
+                    if (currentUser == null) {
+                        System.out.println("\nPlease log in to your account");
+                    } else if (userList.getTask().isEmpty()) {
+                        System.out.println("\nYour list is empty");
+                    } else {
+                        System.out.println("\n===Edit task===");
+                        viewToDoList();
+                        System.out.print("Select list you want to edit: ");
+                        int index = input.nextInt();
+                        input.nextLine();
+                        System.out.print("Enter your new list: ");
+                        String editedTask = input.nextLine();
+                        editToDoList(index, editedTask);
+                        System.out.println("\nSuccessfully edit task");
+                    }
+                    break;
+                case 6:
                     if (currentUser == null) {
                         System.out.println("\nPlease log in to your account");
                     } else if (userList.getTask().isEmpty()) {
@@ -104,17 +121,17 @@ public class App {
                         removeToDoList(removeList);
                     }
                     break;
-                case 6:
+                case 7:
                     if (currentUser == null) {
                         System.out.println("\nPlease log in to your account");
                     } else {
                         getUserProfile();
                     }
                     break;
-                case 7:
+                case 8:
                     logout();
                     break;
-                case 8:
+                case 9:
                     System.out.println("\nExiting application...");
                     input.close();
                     System.exit(0);
@@ -210,17 +227,33 @@ public class App {
         }
     }
 
+    public static void editToDoList(int index, String editedTask) {
+        List<String> currentList = currentUser.getUserTasks().getTask();
+        try {
+            if (currentList.isEmpty()) {
+                throw new Exception("\nYou don't have to-do list");
+            }
+            if (editedTask.isEmpty()) {
+                throw new Exception("\nPlease write something to edit your task");
+            }
+            userList.editTask(index, editedTask);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public static void displayMenu() {
         System.out.println("\n===== To-Do List Application =====");
         System.out.println("1. Register");
         System.out.println("2. Log In");
-        System.out.println("3. Add Task");
-        System.out.println("4. View Tasks");
-        System.out.println("5. Delete Task");
-        System.out.println("6. User profile");
-        System.out.println("7. Log Out");
-        System.out.println("8. Exit");
+        System.out.println("3. View Tasks");
+        System.out.println("4. Add Task");
+        System.out.println("5. Edit Tasks");
+        System.out.println("6. Delete Task");
+        System.out.println("7. User profile");
+        System.out.println("8. Log Out");
+        System.out.println("9. Exit");
         System.out.print("Enter your choice: ");
     }
 
