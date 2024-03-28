@@ -25,25 +25,30 @@ public class TodoList {
         displayMenu();
     }
 
-    public void deleteTask() {
-
+    public void deleteTask(int index) {
+        tasks.remove(index);
     }
 
     public void viewTasks() {
         if (tasks.size() == 0) {
             System.out.println("No tasks added yet.");
-            System.out.println("press 'q' to back main menu : ");
-            if(scanner.nextLine().equals("q")) {
+//            scanner.nextLine();
                 displayMenu();
-            }
+//            }
         } else {
             System.out.println("Tasks:");
             for (int i = 0; i < tasks.size(); i++) {
                 System.out.println((i + 1) + ". " + tasks.get(i));
             }
+            System.out.println("press 'd' to delete or press 'q' to back main menu : ");
 
-            System.out.println("press 'q' to back main menu : ");
-            if(scanner.nextLine().equals("q")) {
+            String delScan = scanner.nextLine();
+
+            if(delScan.equals("d")) {
+                int indel = scanner.nextInt();
+                deleteTask(indel - 1);
+                displayMenu();
+            } else if(delScan.equals("q")) {
                 displayMenu();
             }
         }

@@ -87,7 +87,6 @@ public class App {
 
                 while (userBehave) {
                     String choiceUser = scanner.nextLine();
-//                    isLoggedIn = true;
 
                     switch (choiceUser) {
                         case "1":
