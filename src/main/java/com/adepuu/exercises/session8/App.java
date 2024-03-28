@@ -94,10 +94,10 @@ public class App {
         else
             System.out.println("Hello "+ user.getUserName() +", You have no task today!");
         
-        int taskNumber = 1;
+        int taskNumber = 0;
         for (TaskManagement task : userTask) {
-            System.out.println(taskNumber + ". " + task.getTaskName());
             taskNumber +=1;
+            System.out.println(taskNumber + ". " + task.getTaskName());
         }
 
         System.out.println(" ");
@@ -114,8 +114,13 @@ public class App {
             System.out.println(" ");    
             switch (userChoice) {
                 case "1":
-                    TaskController.completingTask(myScanner, user, userTask);
-                    System.out.println(" ");
+                    if(taskNumber < 1){
+                        System.out.println("You still don't have any task, try to create one!");
+                        System.out.println(" ");
+                    }else{
+                        TaskController.completingTask(myScanner, user, userTask);
+                        System.out.println(" ");
+                    }
                 break;
                 case "2":
                     TaskController.createTask(myScanner, user);

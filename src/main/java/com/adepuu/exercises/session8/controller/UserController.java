@@ -7,6 +7,7 @@ public class UserController {
     public static void userSignUp(Scanner myScanner){
         System.out.println(" ");
         System.out.println("User Sign Up");
+        System.out.println(" ");
         System.out.print("Input your name or type 'quit' to go back : ");
         String userName = myScanner.nextLine();
         if(userName.equals("quit"))
@@ -25,10 +26,10 @@ public class UserController {
             if(password.equals("quit")){
                 App.startMenu(myScanner);
             }
-            else if(password.length()<5){
+            else if(password.length()<6){
                 System.out.println("Sorry, you need atleast 6 character for password");
             }
-        } while (password.length()<5);
+        } while (password.length()<6);
         
         System.out.println("User " + userName + " created! Welcome!");
         System.out.println(" ");
@@ -40,8 +41,10 @@ public class UserController {
     public static void userSignIn(Scanner myScanner){
         System.out.println(" ");
         System.out.println("User Sign In");
+        System.out.println(" ");
         System.out.print("Input your name or type 'quit' to go back : ");
         String userName = myScanner.nextLine();
+        System.out.println(" ");
         if(userName.equals("quit"))
             App.startMenu(myScanner);
 
