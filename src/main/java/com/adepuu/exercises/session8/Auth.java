@@ -12,11 +12,11 @@ public class Auth {
     public void register(String username, String email, String password) {
         try {
             if (userList.containsKey(username)) {
-                throw new Exception("Username already exist");
+                throw new Exception("\nUsername already exist");
             }
             User newUser = new User(username, email, password);
             userList.put(username, newUser);
-            System.out.println("Account created, please log in to create to-do list");
+            System.out.println("\nAccount created, please log in to create to-do list");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -26,11 +26,11 @@ public class Auth {
         User currentUser = null;
         try {
             if (!userList.containsKey(username)) {
-                throw new Exception("Incorrect username or password. Please try again");
+                throw new Exception("\nIncorrect username or password. Please try again");
             }
             User user = userList.get(username);
             if (!password.equals(user.getPassword())) {
-                throw new Exception("Incorrect username or password. Please try again");
+                throw new Exception("\nIncorrect username or password. Please try again");
             }
             currentUser = user;
 

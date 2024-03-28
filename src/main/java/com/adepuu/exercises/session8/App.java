@@ -113,7 +113,6 @@ public class App {
                     break;
                 case 7:
                     logout();
-                    System.out.println("\nLog out success");
                     break;
                 case 8:
                     System.out.println("\nExiting application...");
@@ -155,8 +154,16 @@ public class App {
         }
     }
     public static void logout() {
-        currentUser = null;
-        userList = null;
+        try {
+            if (currentUser == null) {
+                throw new Exception("\nYou are not logged in.");
+            }
+            currentUser = null;
+            userList = null;
+            System.out.println("\nLog out success");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void getUserProfile() {
@@ -168,9 +175,9 @@ public class App {
         List<String> userList = currentUser.getUserTasks().getTask();
         try {
             if (userList.isEmpty()) {
-                throw new Exception("Your list is empty");
+                throw new Exception("\nYour list is empty");
             }
-            System.out.println("\nYour to-do list");
+            System.out.println("\n===Your to-do list===");
             for (int i = 0; i < userList.size(); i++) {
                 System.out.println((i + 1) + ". " + userList.get(i));
             }
@@ -182,7 +189,7 @@ public class App {
     public static void addToDoList(String task) {
         try {
             if (task.isEmpty()) {
-                throw new Exception("Please write something to add to-do list");
+                throw new Exception("\nPlease write something to add to-do list");
             }
             userList.addTask(task);
         } catch (Exception e) {
@@ -195,7 +202,7 @@ public class App {
 
         try {
             if (currentList.isEmpty()) {
-                throw new Exception("Your list is empty");
+                throw new Exception("\nYour list is empty");
             }
             userList.removeTask(task);
         } catch (Exception e) {
