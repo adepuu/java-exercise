@@ -36,10 +36,12 @@ public class App {
      * </ul>
      */
     public static void main(String[] args) {
-        // Create menu functionalities
-        // Split classes
-        // Make methods
-        // Connect all the functionalities with the related menu ;)
-        // GL HF! ;)
+        /*
+         Create menu functionalities
+         Split classes
+         Make methods
+         Connect all the functionalities with the related menu ;)
+         GL HF! ;)
+        */
     }
 }
