@@ -54,9 +54,17 @@ public class App {
         */
   }
 
-  public static void showMenu() {
+  public static void loginMenu() {
       System.out.println("1. Register");
       System.out.println("2. Log In");
       System.out.println("3. Log Out");
+
+      int choice = scan.nextInt();
+
+      switch (choice) {
+        case 1: {
+
+        }
+      }
   }
 }
