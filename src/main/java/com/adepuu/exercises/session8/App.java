@@ -72,19 +72,14 @@ public class App {
             }
 
         }
-        scanner.close();
-        // Create menu functionalities
-        // Split classes
-        // Make methods
-        // Connect all the functionalities with the related menu ;)
-        // GL HF! ;)
+
     }
 
     public static void taskManagementMenu (Scanner scanner) {
         boolean exit = false;
         while (!exit) {
             System.out.println("--------------------------------------");
-            System.out.println("Hello... Welcome to Task Management");
+            System.out.println("Hello... Welcome to The Task Management");
             System.out.println("-----------------Menu-----------------");
             System.out.println("1. Add Task");
             System.out.println("2. View Task");
@@ -105,6 +100,7 @@ public class App {
                 case 4:
                     exit = true;
                     System.out.println("Logging out....");
+                    break;
                 default:
                     System.out.println("Invalid choice, please enter the menu number only");
 

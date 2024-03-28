@@ -16,6 +16,7 @@ public class LoginManager {
         boolean authentication = UserDatabase.authenticateUser(username, password);
         if (authentication) {
             System.out.println("Login successful!");
+            App.taskManagementMenu(scanner);
             // Add code to navigate to task management menu
         } else {
             System.out.println("Invalid username or password. Please try again.");

@@ -11,7 +11,7 @@ public class TaskManager {
         System.out.println("Enter task");
         String task = scanner.next();
         tasks.add(task);
-        System.out.println("Task added successfully... :) ");
+        System.out.println("Task added successfully.");
 
     }
 
