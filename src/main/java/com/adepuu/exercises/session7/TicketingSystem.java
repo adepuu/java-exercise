@@ -85,6 +85,7 @@ public class TicketingSystem {
         if (chosenTicket != null) {
             System.out.print("The ticket is available to buy. Do you want to proceed? (y/n): ");
             String confirmation = scanner.next();
+            scanner.close();
             if (confirmation.equalsIgnoreCase("y")) {
                 chosenTicket.setAvailability(false);
                 user.addBoughtTicket(chosenTicket);
@@ -99,7 +100,7 @@ public class TicketingSystem {
         // displaying bought ticket to the user
         System.out.println("Tickets bought by " + user.getUserName() + ":");
         for (Ticket ticket : user.getBoughtTickets()) {
-            System.out.println("Ticket ID: " + ticket.getTicketId() + "\t Price: Rp" + ticket.getPrice());
+            System.out.println("Ticket ID: " + ticket.getTicketId() + "\t Price: Rp " + ticket.getPrice());
         }
 
     }
