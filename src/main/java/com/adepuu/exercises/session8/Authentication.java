@@ -5,17 +5,18 @@ import java.util.Scanner;
 
 public class Authentication {
 
-  private HashMap<String, String> userPair;
+  private HashMap<String, String> userPair = new HashMap<>();
+  private HashMap<String, User> userPassPair = new HashMap<>();
   private User currentUser;
 
   // Scanner to prompt user input
-  Scanner scan = new Scanner(System.in);
+  private Scanner scan;
   private App app; // need to be looked at again
 
-  public Authentication(HashMap<String, String> userPair) {
-    this.userPair = userPair;
+  public Authentication() {
     // initialize currentUser to null to set that no one is logged in
     this.currentUser = null;
+    this.scan = new Scanner(System.in);
   }
 
   // login method
@@ -27,25 +28,22 @@ public class Authentication {
       String username = scan.nextLine();
       System.out.print("Password: ");
       String password = scan.nextLine();
-
-//      // find the input in the userPair hash map to see if there's a match
-//      User user = new User(username, password);
-//      HashMap<String, String> existingUsers = user.getUserPair();
+      String loginKey = username + password;
 
       // Use try catch method to handle errors
       try {
         // Check if user exists and if password is valid
-        if (userPair == null) {
+        if (userPassPair == null) {
           System.out.println("No registered user, please register first.");
           return;
-        } else if (userPair.containsKey(username) && userPair.get(username).equals(password)) {
+        } else if (userPassPair.containsKey(loginKey) && userPair.get(username).equals(password)) {
           this.currentUser = new User(username, password);
           System.out.println("Welcome, " + username + "!");
         } else {
           throw new Exception();
         }
       } catch (Exception eLogin) {
-        if (!userPair.containsKey(username)) {
+        if (!userPassPair.containsKey(username)) {
           System.out.println("Username doesn't exist! Please try again");
         } else {
           System.out.println("Incorrect password! Please try again");
@@ -67,13 +65,15 @@ public class Authentication {
       String username = scan.nextLine();
       System.out.print("New Password: ");
       String password = scan.nextLine();
+      String loginKey = username + password;
 
       try {
         // Check if username exists
-        if (!userPair.containsKey(username)) {
+        if (!this.userPair.containsKey(username)) {
           // Create a new User object
           User newUser = new User(username, password);
-          userPair.put(username, password);
+          this.userPassPair.put(loginKey, newUser);
+          this.userPair.put(username, password);
           isRegistered = true;
           System.out.println("Register successful! Please sign in.");
           // when using this method later, please redirect it to the login screen

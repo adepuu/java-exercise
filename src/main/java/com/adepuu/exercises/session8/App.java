@@ -45,7 +45,7 @@ public class App {
   private static Scanner scan = new Scanner(System.in);
   private static User user;
   private static HashMap<String, String> userPair;
-  private static Authentication auth = new Authentication(userPair);
+  private static Authentication auth = new Authentication();
 
   public static void main(String[] args) {
         /*
@@ -62,23 +62,24 @@ public class App {
   }
 
   public static void loginMenu() {
-      System.out.println("1. Register");
-      System.out.println("2. Log In");
-      System.out.println("3. Log Out");
+    System.out.println("1. Log In");
+    System.out.println("2. Register");
+    System.out.println("3. Log Out");
 
-      int choice = scan.nextInt();
+    int choice = scan.nextInt();
 
-      switch (choice) {
-        case 1:
-          auth.registerUser();
-          break;
-        case 2:
-          auth.login();
-          break;
-        case 3:
-          auth.logout();
-        default:
-          System.out.println("Invalid choice :(");
-      }
+    switch (choice) {
+      case 1:
+        auth.login();
+        break;
+      case 2:
+        auth.registerUser();
+        break;
+      case 3:
+        auth.logout();
+        break;
+      default:
+        System.out.println("Invalid choice :(");
+    }
   }
 }

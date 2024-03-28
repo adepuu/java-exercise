@@ -7,13 +7,11 @@ public class User {
   // private variables
   private String username;
   private String password;
-  private HashMap<String, String> userPair = new HashMap<String, String>();
 
   // constructor
   public User (String username, String password) {
     this.username = username;
     this.password = password;
-    userPair.put(username, password); // store data in hash map
   }
 
   // getter
@@ -23,10 +21,6 @@ public class User {
 
   public String getPassword() {
     return password;
-  }
-
-  public HashMap<String, String> getUserPair() {
-    return this.userPair;
   }
 
   // setter
