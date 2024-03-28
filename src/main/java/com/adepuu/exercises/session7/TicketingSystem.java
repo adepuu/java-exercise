@@ -19,9 +19,39 @@ public class TicketingSystem {
      * <p>
      * Start your project from the main method below ;) have fun!
      */
+    /*
+<<<<<<< HEAD
         private static ArrayList<User> userList = new ArrayList<>();
         private static ArrayList<Event> eventList = new ArrayList<>();
         private static ArrayList<Ticket> ticketList = new ArrayList<>();
+=======
+     */
+    public static void main(String[] args) {
+        int maxTicket = 10;
+
+        // User book ticket for an event
+        Event event = new Event(maxTicket);
+
+        for (int i = 0; i < 15; i++) {
+            User user = new User(StringUtil.generateName());
+
+            // User book ticket for an event
+            var bookingStatus = event.bookTicket(user.getID());
+            if (bookingStatus) {
+                var confirmedTicket = event.confirmTicket(user.getID());
+                if (confirmedTicket != null) {
+                    user.saveTicket(confirmedTicket);
+                }
+            }
+
+            var accuiredTicket = user.getTicket();
+            if (accuiredTicket != null) {
+                System.out.println(user.getName() + "   Ticket ID: " + accuiredTicket.getID() + "   Event ID: " + accuiredTicket.getEventID());
+            }
+        }
+
+        /*
+>>>>>>> main
 
         public static void main(String[] args) {
             System.out.println("Welcome to Event Ticketing System!");
@@ -58,5 +88,8 @@ public class TicketingSystem {
             for (Event event : eventList) {
                 System.out.println(event.getEventName() + " has " + event.getEventQuota() + " quota left");
             }
-        }
+         */
+
+    }
 }
+
