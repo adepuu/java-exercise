@@ -21,4 +21,5 @@ public class Ticket {
     public Event getTicketEvent() {
         return this.eventID;
     }
+    
 }

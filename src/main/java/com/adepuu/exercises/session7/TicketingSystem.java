@@ -21,10 +21,6 @@ public class TicketingSystem {
      * <p>
      * Start your project from the main method below ;) have fun!
      */
-    private String ticketID;
-    private String eventName;
-    private double price;
-
     private static ArrayList<User> userList = new ArrayList<User>();
     private static ArrayList<Event> eventList = new ArrayList<Event>();
     private static ArrayList<Ticket> ticketList = new ArrayList<Ticket>();

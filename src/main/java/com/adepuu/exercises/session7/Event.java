@@ -24,4 +24,5 @@ public class Event {
     public void someoneBuy(){
         this.eventQuota -= 1;
     }
+    
 }
