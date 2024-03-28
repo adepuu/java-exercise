@@ -24,4 +24,8 @@ public class User {
     public Ticket getTicket() {
         return ticket;
     }
+
+    public String getName() {
+        return name;
+    }
 }
