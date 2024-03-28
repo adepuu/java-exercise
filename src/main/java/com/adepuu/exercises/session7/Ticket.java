@@ -4,9 +4,9 @@ import java.util.UUID;
 
 
 public class Ticket {
-    private String ticketId;
-    private String eventName;
-    private String username;
+    private final String ticketId;
+    private final String eventName;
+    private final String username;
 
     public Ticket(String ticketId, String eventName, String username) {
         this.ticketId = ticketId;

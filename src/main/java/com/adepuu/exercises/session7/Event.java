@@ -1,9 +1,9 @@
 package com.adepuu.exercises.session7;
 
 public class Event {
-    private String eventName;
+    private final String eventName;
     private int stock;
-    private double price;
+    private final double price;
     private boolean isAvailable;
 
     public Event(String eventName, int stock, double price) {

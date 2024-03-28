@@ -3,8 +3,8 @@ package com.adepuu.exercises.session7;
 import java.util.*;
 
 public class BookingSystem {
-    private HashMap<String, Ticket> bookedTickets;
-    private HashMap<String, Event> events;
+    private final HashMap<String, Ticket> bookedTickets;
+    private final HashMap<String, Event> events;
 
     public BookingSystem() {
         bookedTickets = new HashMap<>();
