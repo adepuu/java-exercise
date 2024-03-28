@@ -28,7 +28,7 @@ public class ToDo {
   public void deleteTask(int index) {
     // check if the index is within the array list size
     if (index < tasks.size()) {
-      rasks.remove(index);
+      tasks.remove(index);
     }
   }
 

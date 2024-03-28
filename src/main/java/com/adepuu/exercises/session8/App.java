@@ -1,5 +1,6 @@
 package com.adepuu.exercises.session8;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
@@ -42,7 +43,9 @@ public class App {
    */
 
   private static Scanner scan = new Scanner(System.in);
-  private User user;
+  private static User user;
+  private static HashMap<String, String> userPair;
+  private static Authentication auth = new Authentication(userPair);
 
   public static void main(String[] args) {
         /*
@@ -52,6 +55,10 @@ public class App {
          Connect all the functionalities with the related menu ;)
          GL HF! ;)
         */
+    // initiate login sequence
+    loginMenu();
+
+    // if user is logged, show tasks menu
   }
 
   public static void loginMenu() {
@@ -62,9 +69,16 @@ public class App {
       int choice = scan.nextInt();
 
       switch (choice) {
-        case 1: {
-
-        }
+        case 1:
+          auth.registerUser();
+          break;
+        case 2:
+          auth.login();
+          break;
+        case 3:
+          auth.logout();
+        default:
+          System.out.println("Invalid choice :(");
       }
   }
 }
