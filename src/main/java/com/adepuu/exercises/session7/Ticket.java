@@ -7,7 +7,6 @@ import java.util.Random;
 public class Ticket {
     private String eventName;
     private String ticketId;
-
     private double price;
     private static int stock;
     private boolean isBooked;
@@ -46,12 +45,9 @@ public class Ticket {
         return tickets;
     }
 
-
-
     public String printDetails() {
         return "Ticket : " + eventName + "Price : " + price;
     }
-
 
     public String getTicketId() {
         return ticketId;

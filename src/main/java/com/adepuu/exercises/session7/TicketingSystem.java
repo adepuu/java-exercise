@@ -96,7 +96,6 @@ public class TicketingSystem {
         if (selectedEventName != null) {
             List<Ticket> eventTickets = ticketMap.get(selectedEventName);
             if (!eventTickets.isEmpty()) {
-
                 selectedTicket = eventTickets.removeLast();
                 System.out.println("You selected event: " + selectedEventName);
                 System.out.println("Your ticket ID: " + selectedTicket.getTicketId());
@@ -108,7 +107,6 @@ public class TicketingSystem {
         }
         return selectedTicket;
     }
-
 
     public static void main(String[] args) {
 
@@ -162,7 +160,6 @@ public class TicketingSystem {
                     System.out.println("Check Order" );
                     costumer.printUserDetails();
                     break;
-
                 default:
                     System.out.println("INVALID INPUT");
             }
@@ -170,6 +167,5 @@ public class TicketingSystem {
 
         input.close();
     }
-
 }
 
