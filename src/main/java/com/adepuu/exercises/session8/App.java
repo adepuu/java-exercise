@@ -47,7 +47,8 @@ public class App {
             System.out.println("1. Add New Task ");
             System.out.println("2. Display Task ");
             System.out.println("3. Delete Task  ");
-            System.out.println("4. Log Out  ");
+            System.out.println("4. Change Password  ");
+            System.out.println("5. Log Out  ");
             System.out.println();
             System.out.print("Choice : ");
             try{
@@ -120,20 +121,42 @@ public class App {
                                     String delete = myInput.nextLine();
                                     task.deleteTask(delete);
                                     break;
+                                case 4:boolean isValid = false;
+                                    while (!isValid){
+                                        System.out.println("-----------------Change Password-----------------");
+                                        System.out.print("Input old password : ");
+                                        String oldPassword = myInput.nextLine();
+                                        System.out.print("Input new password : ");
+                                        String newPassword = myInput.nextLine();
+                                        isValid = auth.changePassword(oldPassword,newPassword);
+                                    }
 
-                                case 4 : auth.logout();
+
+                                case 5: auth.logout();
                                          break;
 
                             }
                         }
                     break;
                 case 2:
-                    System.out.println("----------------Register----------------");
-                    System.out.print("Username \t : ");
-                    String username = myInput.nextLine();
-                    System.out.print("Password \t : ");
-                    String password = myInput.nextLine();
-                    auth.createNewUser(username,password);
+                    boolean register = true;
+                    String username,password;
+                    while (register){
+                        System.out.println("----------------Register----------------");
+                        System.out.print("Username \t : ");
+                        username = myInput.nextLine();
+                        System.out.print("Password \t : ");
+                        password = myInput.nextLine();
+                        if(username.isEmpty() || password.isEmpty()) {
+                            System.out.println();
+                            System.out.println("Username / password can not be empty");
+                            continue;
+                        }
+                        boolean isRegistered = auth.createNewUser(username, password);
+                        if(isRegistered == true){
+                            register = false;
+                        }
+                    }
                     break;
                 case 3:loop = true;
                       break;
