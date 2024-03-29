@@ -46,6 +46,7 @@ public class App {
   private static HashMap<String, String> userPair;
   private static final Authentication auth = new Authentication();
   private static ToDo toDos;
+  private static Task tasks;
   private static Scanner scan = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -109,9 +110,9 @@ public class App {
 
       System.out.println("What would you like to do today?");
       System.out.println("1. Add Tasks");
-      System.out.println("2. Delete Tasks");
-      System.out.println("3. Edit Tasks");
-      System.out.println("3. Log Out and Exit");
+      System.out.println("2. Mark Tasks");
+      System.out.println("3. Delete Tasks");
+      System.out.println("4. Log Out and Exit");
 
       System.out.print("Enter input: ");
       int choice = scan.nextInt();
@@ -124,14 +125,19 @@ public class App {
           currentTodo.addTask(description);
           break;
         case 2:
-          System.out.print("Which task item to delete? ");
-          int index = scan.nextInt();
-          scan.nextLine();
-          currentTodo.deleteTask(index);
+          System.out.print("Which task item do you want to mark? ");
+          int indexTask = scan.nextInt() - 1; // because list starts at index 0
+          System.out.println("What would you like to mark it as?");
+          System.out.println("1. Mark as complete");
+          System.out.println("2. Mark as pending");
+          int choiceTask = scan.nextInt();
+          editTasks(indexTask, choiceTask);
           break;
         case 3:
-          System.out.print("Which task item do you want to edit? ");
-          // editTasks();
+          System.out.print("Which task item to delete? ");
+          int indexDel = scan.nextInt() - 1; // bc 0
+          scan.nextLine();
+          currentTodo.deleteTask(indexDel);
           break;
         case 4:
           auth.logout();
@@ -142,7 +148,27 @@ public class App {
     }
   }
 
-  public static void editTasks(int index) {
-  // ! make this
+  public static void editTasks(int indexTask, int choiceTask) {
+    Task taskItem = auth.getCurrentUser().getToDos("def").markTasks(indexTask);
+    switch (choiceTask) {
+      case 1:
+        if (!taskItem.isCompleted()) {
+          taskItem.markAsCompleted();
+          System.out.println("Congratulations! You have completed task item number " + indexTask);
+        } else {
+          System.out.println("You have already completed that task!");
+        }
+        break;
+      case 2:
+        if (taskItem.isCompleted()) {
+          taskItem.markAsPending();
+          System.out.println("You have marked task item number " + indexTask + " as pending");
+        } else {
+          System.out.println("It hasn't been marked completed!");
+        }
+        break;
+      default:
+        System.out.println("Invalid choice :(");
+    }
   }
 }

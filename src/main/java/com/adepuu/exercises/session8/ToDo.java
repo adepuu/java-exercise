@@ -6,6 +6,7 @@ import java.util.List;
 public class ToDo {
   private String todoName;
   private List<Task> tasks;
+  private Task item;
 
   // constructor
   public ToDo(String todoName) {
@@ -45,6 +46,15 @@ public class ToDo {
         String status = tasks.get(i).isCompleted() ? "[x]" : "[ ]";
         System.out.println(i+1 + ". " + status + " " + tasks.get(i).getDescription());
       }
+    }
+  }
+
+  public Task markTasks(int index) {
+    if (tasks.isEmpty()) {
+      System.out.println("No tasks found!");
+      return null;
+    } else {
+      return tasks.get(index);
     }
   }
 }
