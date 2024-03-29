@@ -1,45 +1,55 @@
 package com.adepuu.exercises.session7;
 
-import java.util.Random;
+import java.util.UUID;
 
 public class Ticket {
-  private final String id;
 
-  private final String eventName;
+  private final String ticketId;
 
-  private final double price;
+  private String eventName;
 
+  private String ticketName;
 
-  public Ticket(String eventName, double price) {
-    this.id = generateId();
+  private String price;
+
+   String userId;
+
+  public Ticket(String ticketId,String eventName, String ticketName, String price, String userId) {
+    this.ticketId = ticketId;
     this.eventName = eventName;
+    this.ticketName = ticketName;
+    this.price = price;
+    this.userId = userId;
+  }
+
+  public String getTicketId() {
+    return ticketId;
+  }
+
+  public String getPrice() {
+    return  price;
+  }
+
+  public void setPrice(String price) {
     this.price = price;
   }
 
-  protected String generateId () {
-    String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            + "0123456789"
-            + "abcdefghijklmnopqrstuvxyz";
-    StringBuilder sb = new StringBuilder(10);
-    for (int i = 0; i < 10; i++) {
-      int index
-              = (int)(AlphaNumericString.length()
-              * Math.random());
-      sb.append(AlphaNumericString
-              .charAt(index));
-    }
-    return sb.toString();
-  }
-
-  public String getId () {
-    return id;
-  }
-
-  public String getEventName () {
+  public String getEventName() {
     return eventName;
   }
 
-  public String getPrice () {
-    return Integer.toString((int)price);
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
   }
+
+  public String getTicketName() {
+    return ticketName;
+  }
+
+  public void setTicketName(String ticketName) {
+    this.ticketName = ticketName;
+  }
+
+  public String getUserId() { return userId;}
+
 }
