@@ -121,7 +121,8 @@ public class App {
                                     String delete = myInput.nextLine();
                                     task.deleteTask(delete);
                                     break;
-                                case 4:boolean isValid = false;
+                                case 4:
+                                    boolean isValid = false;
                                     while (!isValid){
                                         System.out.println("-----------------Change Password-----------------");
                                         System.out.print("Input old password : ");
@@ -130,6 +131,7 @@ public class App {
                                         String newPassword = myInput.nextLine();
                                         isValid = auth.changePassword(oldPassword,newPassword);
                                     }
+                                    break;
 
 
                                 case 5: auth.logout();
