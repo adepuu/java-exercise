@@ -43,7 +43,7 @@ public class ToDo {
       System.out.println("Here are your tasks:");
       for (int i = 0; i < tasks.size(); i++) {
         String status = tasks.get(i).isCompleted() ? "[x]" : "[ ]";
-        System.out.println(i + ". " + status + " " + tasks.get(i).getDescription());
+        System.out.println(i+1 + ". " + status + " " + tasks.get(i).getDescription());
       }
     }
   }

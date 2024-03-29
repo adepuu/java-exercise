@@ -9,13 +9,13 @@ public class User {
   private String password;
 
   // tie user to todo
-  private HashMap<String, ToDo> toDos = new HashMap<>();
+  private ToDo toDos;
 
   // constructor
   public User (String username, String password) {
     this.username = username;
     this.password = password;
-    this.toDos = toDos;
+    this.toDos = new ToDo("def");
   }
 
   // getter
@@ -28,8 +28,10 @@ public class User {
   }
 
   public ToDo getToDos(String todoName) {
-    return toDos.get(todoName);
+    return toDos;
   }
+
+// ! public ToDo getAll()
 
   // setter
   public void setUsername() {
@@ -44,11 +46,11 @@ public class User {
     return this.password.equals(password);
   }
 
-  public void addTodo(String todoName) {
-    toDos.put(todoName, new ToDo(todoName));
-  }
-
-  public void deleteTodo(String todoName) {
-    toDos.remove(todoName);
-  }
+//  public void addTodo(String todoName) {
+//    toDos.put(todoName, new ToDo(todoName));
+//  }
+//
+//  public void deleteTodo(String todoName) {
+//    toDos.remove(todoName);
+//  }
 }

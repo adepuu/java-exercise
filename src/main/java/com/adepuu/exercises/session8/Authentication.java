@@ -9,8 +9,6 @@ public class Authentication {
   private final HashMap<String, User> userPassPair = new HashMap<>();
   private User currentUser;
 
-  // Scanner to prompt user input
-  private final Scanner scan = new Scanner(System.in);
   private App app; // redirect user to log in menu
 
   public Authentication() {
@@ -29,6 +27,7 @@ public class Authentication {
       // Prompt user
       System.out.println("Enter your credentials. Please be mindful of uppercase and/or lowercase!");
       System.out.print("Username: ");
+      Scanner scan = new Scanner(System.in);
       String username = scan.nextLine();
       System.out.print("Password: ");
       String password = scan.nextLine();
@@ -42,7 +41,7 @@ public class Authentication {
           System.out.println("No registered user, please register first.");
           return;
         } else if (userPassPair.containsKey(loginKey) && userPair.get(username).equals(password)) {
-          this.currentUser = new User(username, password);
+          this.currentUser = userPassPair.get(loginKey);
           System.out.println("Welcome, " + username + "!");
         } else {
           throw new Exception();
@@ -56,7 +55,6 @@ public class Authentication {
         }
       }
     }
-    scan.close();
   }
 
   // register method
@@ -68,6 +66,7 @@ public class Authentication {
       // Prompt user
       System.out.println("Enter your credentials. Please be mindful of uppercase and/or lowercase!");
       System.out.print("New Username: ");
+      Scanner scan = new Scanner(System.in);
       String username = scan.nextLine();
       System.out.print("New Password: ");
       String password = scan.nextLine();
@@ -85,7 +84,7 @@ public class Authentication {
           System.out.println("Register successful! Please sign in.");
           System.out.println();
           // when using this method later, please redirect it to the login screen
-          app.loginMenu(); // use callback to login method
+          // ! app.loginMenu(); // use callback to login method
           // this still doesn't work
         } else {
           throw new Exception();
@@ -95,7 +94,6 @@ public class Authentication {
         System.out.println("Username already exists! Please try again.");
       }
     }
-    scan.close();
   }
 
   // logout method

@@ -42,11 +42,11 @@ public class App {
    * </ul>
    */
 
-  private static final Scanner scan = new Scanner(System.in);
   private static User user;
   private static HashMap<String, String> userPair;
   private static final Authentication auth = new Authentication();
   private static ToDo toDos;
+  private static Scanner scan = new Scanner(System.in);
 
   public static void main(String[] args) {
         /*
@@ -58,39 +58,43 @@ public class App {
         */
     // initiate login sequence
     loginMenu();
-    System.out.println(auth.getCurrentUser());
+    System.out.println(auth.getCurrentUser().getPassword());
     // ? note: [currentUser] doesn't seem to store dta after log in :(
 
     // if user is logged, show tasks menu
     if (auth.getCurrentUser() != null) {
       tasksMenu();
     }
+
+    scan.close();
   }
 
   public static void loginMenu() {
-    System.out.println("Welcome to iToDo!");
-    System.out.println("Please log in or register as a user.");
-    System.out.println("1. Log In");
-    System.out.println("2. Register");
-    System.out.println("3. Log Out");
+    Scanner scan = new Scanner(System.in);
+    while (auth.getCurrentUser() == null) {
+      System.out.println("Welcome to iToDo!");
+      System.out.println("Please log in or register as a user.");
+      System.out.println("1. Log In");
+      System.out.println("2. Register");
+      System.out.println("3. Exit");
 
-    System.out.print("Enter input: ");
-    int choice = scan.nextInt();
-    scan.nextLine();
+      System.out.print("Enter input: ");
+      int choice = scan.nextInt();
+      scan.nextLine();
 
-    switch (choice) {
-      case 1:
-        auth.login();
-        break;
-      case 2:
-        auth.registerUser();
-        break;
-      case 3:
-        auth.logout();
-        scan.close();
-        return;
-      default:
-        System.out.println("Invalid choice :(");
+      switch (choice) {
+        case 1:
+          auth.login();
+          break;
+        case 2:
+          auth.registerUser();
+          break;
+        case 3:
+          auth.logout();
+          return;
+        default:
+          System.out.println("Invalid choice :(");
+      }
     }
     System.out.println();
   }
@@ -98,41 +102,47 @@ public class App {
   public static void tasksMenu() {
     // loops through this menu till user logs out
     while (true) {
+      // assign to user's todo
+      ToDo currentTodo = auth.getCurrentUser().getToDos("def");
       // Show existing tasks
-      toDos.viewTasks();
+      currentTodo.viewTasks();
 
       System.out.println("What would you like to do today?");
       System.out.println("1. Add Tasks");
       System.out.println("2. Delete Tasks");
+      System.out.println("3. Edit Tasks");
       System.out.println("3. Log Out and Exit");
 
       System.out.print("Enter input: ");
       int choice = scan.nextInt();
       scan.nextLine();
-      try {
-        switch (choice) {
-          case 1:
-            System.out.println("Input task:");
-            String description = scan.nextLine();
-            scan.nextLine();
-            toDos.addTask(description);
-            break;
-          case 2:
-            System.out.print("Which task item to delete? ");
-            int index = scan.nextInt();
-            scan.nextLine();
-            toDos.deleteTask(index);
-            break;
-          case 3:
-            auth.logout();
-            scan.close();
-            return;
-          default:
-            System.out.println("Invalid choice >:(");
-        }
-      } catch (Exception e) {
-        e.getCause();
+
+      switch (choice) {
+        case 1:
+          System.out.println("Input task:");
+          String description = scan.nextLine();
+          currentTodo.addTask(description);
+          break;
+        case 2:
+          System.out.print("Which task item to delete? ");
+          int index = scan.nextInt();
+          scan.nextLine();
+          currentTodo.deleteTask(index);
+          break;
+        case 3:
+          System.out.print("Which task item do you want to edit? ");
+          // editTasks();
+          break;
+        case 4:
+          auth.logout();
+          return;
+        default:
+          System.out.println("Invalid choice >:(");
       }
     }
+  }
+
+  public static void editTasks(int index) {
+  // ! make this
   }
 }
