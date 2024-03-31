@@ -31,6 +31,5 @@ public class TicketingSystem {
     } catch (Exception e) {
       System.out.println("----- App stopped -----");
     }
-
   }
 }
