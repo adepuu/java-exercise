@@ -18,7 +18,7 @@ public class DVD extends Material{
   }
 
   @Override
-  public void printStatus(Material material) {
+  public void printStatus() {
     if (super.getAvailability() > 0) {
       System.out.println("DVD Status: Available");
     } else {

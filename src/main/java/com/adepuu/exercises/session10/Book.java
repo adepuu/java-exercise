@@ -18,7 +18,7 @@ public class Book extends Material {
   }
 
   @Override
-  public void printStatus(Material material) {
+  public void printStatus() {
     if (super.getAvailability() > 0) {
       System.out.println("Book Status: Available");
     } else {

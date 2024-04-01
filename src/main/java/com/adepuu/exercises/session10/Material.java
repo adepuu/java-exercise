@@ -40,11 +40,25 @@ public class Material {
   }
 
   // methods
-  public void printStatus(Material material) {
+  public void printStatus() {
     if (this.availability > 0) {
       System.out.println("Status: Available");
     } else {
       System.out.println("Status: Not Available");
     }
+  }
+
+  public void borrowMaterial() {
+    if (this.availability > 0) {
+      this.availability--;
+      System.out.println("Enjoy and please return on time!");
+    } else {
+      System.out.println("It's currently unavailable, sorry :(");
+    }
+  }
+
+  public void returnMaterial() {
+    this.availability++;
+    System.out.println("Thank you for your return!");
   }
 }

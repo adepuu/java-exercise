@@ -21,6 +21,12 @@ public class LibraryManagement {
    * - Make sure to implement Inheritance and Polymorphism properly
    */
   public static void main(String[] args) {
+    Book newBook = new Book("abc", "123", 3, 300);
+    DVD newDVD = new DVD("def", "456", 5, 120);
 
+    newBook.borrowMaterial();
+    newBook.printStatus();
+    newBook.returnMaterial();
+    newBook.printStatus();
   }
 }
