@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session10;
 
+import java.util.Scanner;
+
 public class LibraryManagement {
   /**
    * Acceptance Criteria:
@@ -8,13 +10,29 @@ public class LibraryManagement {
    * - The program should include methods to borrow and return materials.
    * - The program should keep track of the available and borrowed materials.
    * - The program should print out the status of materials (available, borrowed) and the actions performed (borrow, return).
-   *
+   * <p>
    * Notes:
    * - The program doesn't require a menu system; focus should be on Object-Oriented Programming (OOP) and inheritance implementation.
    * - Make sure to implement Inheritance and Polymorphism properly
    */
 
   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    Menu menu = new Menu(scanner);
+    menu.openApp();
+//    Library myLibrary = new Library(scanner);
 
+    // Menambahkan material
+//    myLibrary.addMaterial(new Book("Pemrograman Java", 3));
+//    myLibrary.addMaterial(new Magazine("Popular", 2));
+
+    // Meminjam dan mengembalikan material
+//    myLibrary.borrowMaterial();
+//    myLibrary.returnMaterial("Pemrograman Java");
+
+    // Mencetak status material
+//    myLibrary.getMaterials();
+
+    scanner.close();
   }
 }

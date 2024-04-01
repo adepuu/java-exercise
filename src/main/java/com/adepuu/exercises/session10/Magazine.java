@@ -2,58 +2,24 @@ package com.adepuu.exercises.session10;
 
 import java.util.Date;
 
-public class Magazine extends Material{
-  private Date borrowDate;
-
-  private Date returnDate;
-
-  private String borrower;
+public class Magazine extends Material {
 
   public Magazine(String title, int count) {
-    super(title, count);
-  }
-
-  public Magazine(String title, int count, Date borrowDate, Date returnDate, String Borrower) {
-    super(title, count);
-    this.setBorrowDate(borrowDate);
-    this.setReturnDate(returnDate);
-    this.setBorrower(Borrower);
+    super(title, count, "Magazine");
   }
 
   @Override
-  void borrow() {
-
+  boolean borrow() {
+    if (getCount() > 0) {
+      setCount(getCount() - 1);
+      return true;
+    }
+    return false;
   }
 
   @Override
-  void returnMaterial() {
-
+  boolean returnMaterial() {
+    setCount(getCount() + 1);
+    return true;
   }
-
-
-  public Date getBorrowDate() {
-    return borrowDate;
-  }
-
-  public void setBorrowDate(Date borrowDate) {
-    this.borrowDate = borrowDate;
-  }
-
-  public Date getReturnDate() {
-    return returnDate;
-  }
-
-  public void setReturnDate(Date returnDate) {
-    this.returnDate = returnDate;
-  }
-
-  public String getBorrower() {
-    return borrower;
-  }
-
-  public void setBorrower(String borrower) {
-    this.borrower = borrower;
-  }
-
-
 }
