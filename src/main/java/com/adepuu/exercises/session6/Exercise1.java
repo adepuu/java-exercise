@@ -10,7 +10,7 @@ public class Exercise1 {
      * Input: 1, 2, 3, a, b, 4, 5, q
      * Output: 3
      *
-     * Explanation: print “Invalid input. Please enter a valid number or 'q' to finish.” if user not inserting the expected number or character.
+     * Explanation: print "Invalid input. Please enter a valid number or 'q' to finish." if user not inserting the expected number or character.
      */
     public static void main(String[] args) {
 
