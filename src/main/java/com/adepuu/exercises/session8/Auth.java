@@ -1,60 +1,70 @@
 package com.adepuu.exercises.session8;
+import java.util.Scanner;
 
-import java.util.HashMap;
+class ToDoList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        User currentUser = null;
+        Task taskManager = new Task();
 
-public class Auth {
-    private HashMap<String, User> registeredUsers = new HashMap<>();
-    private String activeUserName;
+        while (true) {
+            System.out.println("1. Register\n2. Login\n3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
-    public boolean registerUser(User newUser) {
-        if (registeredUsers.containsKey(newUser.getUsername())) {
-            System.out.println("Username already exist, choose other username!");
-            return false;
-        }
-        registeredUsers.put(newUser.getUsername(), newUser);
-        activeUserName = newUser.getUsername();
-        return true;
-    }
-
-    public String getActiveUserID() {
-        return activeUserName;
-    }
-
-    public boolean logout() {
-        if (this.activeUserName.isEmpty()) {
-            System.out.println("Session empty");
-            return false;
-        }
-
-        this.activeUserName = "";
-        System.out.println("Logged Out");
-        return true;
-    }
-
-    public boolean login(String username, String password) {
-        if (username.isEmpty() || password.isEmpty()) return false;
-
-        if (!registeredUsers.containsKey(username)) {
-            User newUser = new User(username, password);
-            if (registerUser(newUser)) {
-                System.out.println("New user registered, logged in");
-                this.activeUserName = newUser.getUsername();
-                return true;
+            if (choice == 1) {
+                System.out.print("Enter username: ");
+                String username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                String password = scanner.nextLine();
+                currentUser = new User(username, password);
+                System.out.println("Account created successfully.");
+            } else if (choice == 2) {
+                if (currentUser == null) {
+                    System.out.println("No user registered.");
+                    continue;
+                }
+                System.out.print("Enter username: ");
+                String username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                String password = scanner.nextLine();
+                if (currentUser.authenticate(username, password)) {
+                    System.out.println("Login successful.");
+                    while (true) {
+                        System.out.println("1. Add Task\n2. View Tasks\n3. Delete Task\n4. Logout");
+                        System.out.print("Enter your choice: ");
+                        int innerChoice = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline
+                        if (innerChoice == 1) {
+                            System.out.print("Enter task description: ");
+                            String task = scanner.nextLine();
+                            taskManager.addTask(task);
+                            System.out.println("Task added successfully.");
+                        } else if (innerChoice == 2) {
+                            taskManager.displayTasks();
+                        } else if (innerChoice == 3) {
+                            System.out.print("Enter task index to delete: ");
+                            int index = scanner.nextInt();
+                            scanner.nextLine(); // Consume newline
+                            taskManager.deleteTask(index - 1);
+                        } else if (innerChoice == 4) {
+                            System.out.println("Logged out.");
+                            break;
+                        } else {
+                            System.out.println("Invalid choice.");
+                        }
+                    }
+                } else {
+                    System.out.println("Invalid username or password.");
+                }
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("Invalid choice.");
             }
-            System.out.println("Something wrong :(");
-            return false;
         }
-        var currentUser = registeredUsers.get(username);
-        if (currentUser.checkCredentials(username, password)) {
-            System.out.println("Logged in, welcome " + currentUser.getUsername());
-            this.activeUserName = currentUser.getUsername();
-            return true;
-        }
-        System.out.println("Wrong credentials!");
-        return false;
-    }
-
-    public User getCurrentUserDetails() {
-        return registeredUsers.get(activeUserName);
+        scanner.close();
     }
 }
