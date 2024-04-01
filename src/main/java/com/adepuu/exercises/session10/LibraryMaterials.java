@@ -11,19 +11,21 @@ public class LibraryMaterials {
         this.borrowedCount = 0;
     }
 
+    public void status () {
+        System.out.println("--- " + title + " Status ---");
+        System.out.println("Borrowed: " + borrowedCount);
+        System.out.println("Available: " + availabilityCount);
+    }
+
     public void borrowMaterial() {
         if (availabilityCount > 0) {
             availabilityCount -= 1;
             borrowedCount += 1;
             System.out.println(title + " has been borrowed.");
-            System.out.println("--- " + title + " Status ---");
-            System.out.println("Borrowed: " + borrowedCount);
-            System.out.println("Available: " + availabilityCount);
+            status();
         } else {
             System.out.println(title + " is not available to borrow.");
-            System.out.println("--- " + title + " Status ---");
-            System.out.println("Borrowed: " + borrowedCount);
-            System.out.println("Available: " + availabilityCount);
+            status();
         }
     }
 
@@ -32,14 +34,10 @@ public class LibraryMaterials {
             availabilityCount += 1;
             borrowedCount -= 1;
             System.out.println(title + " has been returned");
-            System.out.println("--- " + title + " Status ---");
-            System.out.println("Borrowed: " + borrowedCount);
-            System.out.println("Available: " + availabilityCount);
+            status();
         } else {
             System.out.println("Returning failed. No copies of " + title + " is borrowed.");
-            System.out.println("--- " + title + " Status ---");
-            System.out.println("Borrowed: " + borrowedCount);
-            System.out.println("Available: " + availabilityCount);
+            status();
         }
     }
 
