@@ -1,7 +1,6 @@
 package com.adepuu.oop;
 
 import com.adepuu.oop.Bank.Bank;
-import com.adepuu.oop.Bank.BankAccount;
 
 public class ProtectedExample {
     public static void main(String[] args) {
@@ -9,6 +8,11 @@ public class ProtectedExample {
         bankBri.deposit(100000);
         System.out.println(bankBri.getBalance());
         System.out.println(bankBri.getBankName());
+        bankBri.printAccountNumber();
+
+
+//        BankAccount account = new BankAccount("1241421");
+//        account.getBalance();
         // Can't access from other than the child
 
         // BankAccount account = new BankAccount("124114141");
