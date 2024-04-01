@@ -1,4 +1,6 @@
-package com.adepuu.exercises.session10;
+package com.adepuu.exercises.session10.Book;
+
+import com.adepuu.exercises.session10.LibraryTransaction;
 
 public class Book implements LibraryTransaction{
     private int availability;

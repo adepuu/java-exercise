@@ -2,6 +2,8 @@ package com.adepuu.exercises.session10;
 
 import java.util.Scanner;
 
+import com.adepuu.exercises.session10.Book.Category.*;
+
 public class LibraryManagement {
     /**
      * Acceptance Criteria:

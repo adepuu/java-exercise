@@ -1,4 +1,5 @@
-package com.adepuu.exercises.session10;
+package com.adepuu.exercises.session10.Book.Category;
+import com.adepuu.exercises.session10.Book.Book;
 
 public class Encyclopedia extends Book{
 
