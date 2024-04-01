@@ -15,9 +15,15 @@ public class LibraryMaterials {
         if (availabilityCount > 0) {
             availabilityCount -= 1;
             borrowedCount += 1;
-            System.out.println(title + " has been borrowed. There are " + availabilityCount + " copies available.");
+            System.out.println(title + " has been borrowed.");
+            System.out.println("--- " + title + " Status ---");
+            System.out.println("Borrowed: " + borrowedCount);
+            System.out.println("Available: " + availabilityCount);
         } else {
             System.out.println(title + " is not available to borrow.");
+            System.out.println("--- " + title + " Status ---");
+            System.out.println("Borrowed: " + borrowedCount);
+            System.out.println("Available: " + availabilityCount);
         }
     }
 
@@ -25,44 +31,16 @@ public class LibraryMaterials {
         if (borrowedCount > 0) {
             availabilityCount += 1;
             borrowedCount -= 1;
-            System.out.println(title + " has been returned. There are " + availabilityCount + " copies available.");
+            System.out.println(title + " has been returned");
+            System.out.println("--- " + title + " Status ---");
+            System.out.println("Borrowed: " + borrowedCount);
+            System.out.println("Available: " + availabilityCount);
         } else {
             System.out.println("Returning failed. No copies of " + title + " is borrowed.");
+            System.out.println("--- " + title + " Status ---");
+            System.out.println("Borrowed: " + borrowedCount);
+            System.out.println("Available: " + availabilityCount);
         }
     }
-
-    /**
-     * Properties:
-     *         - title
-     *         - availability_count
-     *         - borrowed_count
-     *
-     *     Methods:
-     *         - constructor(title, availability_count)
-     *         - borrow()
-     *         - return_material()
-     *
-     * # LibraryMaterial Class Implementation
-     * Method LibraryMaterial.constructor(title, availability_count):
-     *     self.title = title
-     *     self.availability_count = availability_count
-     *     self.borrowed_count = 0
-     *
-     * Method LibraryMaterial.borrow():
-     *     if self.availability_count > 0:
-     *         self.availability_count -= 1
-     *         self.borrowed_count += 1
-     *         print(self.title + " has been borrowed.")
-     *     else:
-     *         print(self.title + " is not available for borrowing.")
-     *
-     * Method LibraryMaterial.return_material():
-     *     if self.borrowed_count > 0:
-     *         self.availability_count += 1
-     *         self.borrowed_count -= 1
-     *         print(self.title + " has been returned.")
-     *     else:
-     *         print(self.title + " has no borrowed copies.")
-     */
 
 }

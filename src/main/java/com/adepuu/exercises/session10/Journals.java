@@ -7,16 +7,5 @@ public class Journals extends LibraryMaterials{
         super(title, availabilityCount);
         this.editor = editor;
     }
-    /**
-     * Properties:
-     *         - editor
-     *
-     *     Methods:
-     *         - constructor(title, availability_count, editor)
-     *
-     * # Journal Class Implementation
-     * Method Journal.constructor(title, availability_count, editor):
-     *     super().constructor(title, availability_count)
-     *     self.editor = editor
-     */
+
 }

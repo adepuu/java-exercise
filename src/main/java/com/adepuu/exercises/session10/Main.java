@@ -36,24 +36,4 @@ public class Main {
         librarian.manageMaterial(journal1, "return");
     }
 
-
-
-    /*
-    # Usage
-librarian = Librarian()
-
-# Create materials
-book1 = librarian.create_material("Book", "The Great Gatsby", 5, "F. Scott Fitzgerald")
-dvd1 = librarian.create_material("DVD", "Inception", 3, "Christopher Nolan")
-journal1 = librarian.create_material("Journal", "Nature", 10, "John Smith")
-
-# Manage materials
-librarian.manage_material(book1, "borrow")
-librarian.manage_material(dvd1, "borrow")
-librarian.manage_material(journal1, "borrow")
-
-librarian.manage_material(book1, "return")
-librarian.manage_material(dvd1, "return")
-librarian.manage_material(journal1, "return")
-     */
 }

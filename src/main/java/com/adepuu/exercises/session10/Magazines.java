@@ -7,17 +7,5 @@ public class Magazines extends LibraryMaterials{
         super(title, availabilityCount);
         this.publisher = publisher;
     }
-    /**
-     * Properties:
-     *         - publisher
-     *
-     *     Methods:
-     *         - constructor(title, availability_count, publisher)
-     *
-     * #Magazines Class Implementation
-     * Method DVD.constructor(title, availability_count, publisher):
-     *     super().constructor(title, availability_count)
-     *     self.publisher = publisher
-     */
 
 }
