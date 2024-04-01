@@ -43,12 +43,12 @@ public class TicketingSystem {
                     user.saveTicket(confirmedTicket);
                 }
             }
-
             var accuiredTicket = user.getTicket();
             if (accuiredTicket != null) {
                 System.out.println(user.getName() + "   Ticket ID: " + accuiredTicket.getID() + "   Event ID: " + accuiredTicket.getEventID());
             }
         }
+//<<<<<<< HEAD
 
         /*
 >>>>>>> main
@@ -90,6 +90,8 @@ public class TicketingSystem {
             }
          */
 
+//=======
+//>>>>>>> main
     }
 }
 

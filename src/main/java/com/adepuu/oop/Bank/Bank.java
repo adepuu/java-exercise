@@ -10,4 +10,7 @@ public class Bank extends BankAccount {
     public String getBankName() {
         return this.bankName;
     }
+    public void printAccountNumber() {
+            System.out.println(super.getAccountNumber());
+    }
 }
