@@ -27,10 +27,12 @@ public class LibraryManagement {
         Comics kurokuNobasuke = new Comics("Kurkoku basuke-1", "Shinji kagawa", 0, 10, "Sport");
         SelfImprovement anatomicHabbit = new SelfImprovement("Anatomic Habbit", "James clear", 0, 20, "⭐ ⭐️ ⭐ ⭐ ⭐");
         Comics sherlockHolmes = new Comics("Sherlock Holmes", "Arthur Conan Doyle", 0, 5, "Adventure");
+        Dvd dvdTutorialOOP = new Dvd("I love Java", "10203", 2, 0);
         System.out.println(emotionalIntelitent.nameBook() + " Stock = " + emotionalIntelitent.checkSlot());
         System.out.println(kurokuNobasuke.nameBook() + " Stock = " + kurokuNobasuke.checkSlot());
         System.out.println(anatomicHabbit.nameBook() + " Stock = " + anatomicHabbit.checkSlot());
         System.out.println(sherlockHolmes.nameBook() + " Stock = " + sherlockHolmes.checkSlot());
+        System.out.println(dvdTutorialOOP.getDVD() + " Stock = " + dvdTutorialOOP.slotDvd());
 
 
         // Create case peminjaman buku
@@ -43,6 +45,11 @@ public class LibraryManagement {
         System.out.println("");
         System.out.println("Return book");
         emotionalIntelitent.returnBook();
+
+        System.out.println("");
+        System.out.println("Borrow DVD");
+        dvdTutorialOOP.borrowBook();
+
 
 
 

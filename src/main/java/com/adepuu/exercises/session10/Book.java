@@ -13,7 +13,7 @@ public class Book implements LibrarySystem {
     static ArrayList<Book> listBook = new ArrayList<Book>();
 
 
-
+//    Constructor book
     protected Book(String inNameBook, String authorName, int inBorrow, int slotAvail){
         nameBook = inNameBook;
         author = authorName;
@@ -21,6 +21,7 @@ public class Book implements LibrarySystem {
         slot = slotAvail;
 
     }
+//    Method check lot buku
 
     public int checkSlot(){
         return this.slot;
@@ -29,6 +30,8 @@ public class Book implements LibrarySystem {
     public int borrowBooks(){
         return this.borrow;
     }
+
+//    polimor peminjaman buku (tambah dan kurang sebagai validasi)
 
     @Override
     public void borrowBook() {
@@ -45,6 +48,8 @@ public class Book implements LibrarySystem {
 
 
     }
+//
+//    Poli untuk pengembalian buku (tambah dan kurang)
 
     @Override
     public void returnBook() {
