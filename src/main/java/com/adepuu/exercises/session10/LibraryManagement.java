@@ -14,6 +14,18 @@ public class LibraryManagement {
      * - Make sure to implement Inheritance and Polymorphism properly
      */
     public static void main(String[] args) {
+        Library library = new Library();
+
+        library.addMaterial(new Book("Algoritma Pemrograman", "Bukan Saya", 2));
+        library.addMaterial(new Journal("Sistem pengukur kemiripan menggunakan Jaro winkler", "Saya", "UMRAH",1));
+        library.borrowMaterial("Algoritma Pemrograman");
+        library.borrowMaterial("Algoritma Pemrograman");
+        library.borrowMaterial("Algoritma Pemrograman");
+        library.borrowMaterial("Sistem pengukur kemiripan menggunakan Jaro winkler");
+        library.returnMaterial("Sistem pengukur kemiripan menggunakan Jaro winkler");
+
+
+
 
     }
 }
