@@ -12,7 +12,7 @@ public class Tabloid extends Book{
         System.out.println("Added Tabloid " + super.getName()+ " can be borrowed or purchase for " + this.getPrice() + " for " + super.getAvailability() + " pcs");
     }
 
-    public double getPrice() {
+    private double getPrice() {
         return price;
     }
 

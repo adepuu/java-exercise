@@ -11,7 +11,7 @@ public class Novel extends Book{
         System.out.println("Added Novel " + super.getName()+ " with genre " + this.getGenre() + " for " + super.getAvailability() + " pcs");
     }
 
-    public String getGenre() {
+    private String getGenre() {
         return this.genre;
     }
 

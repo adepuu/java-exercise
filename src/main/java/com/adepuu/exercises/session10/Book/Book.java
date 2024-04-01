@@ -13,7 +13,7 @@ public class Book implements LibraryTransaction{
         this.borrowed = 0;
     }
 
-    public int getAvailability() {
+    protected int getAvailability() {
         return this.availability;
     }
 
@@ -24,15 +24,15 @@ public class Book implements LibraryTransaction{
         }
     }
     
-    public void setAvailability(int availability) {
+    protected void setAvailability(int availability) {
         this.availability = availability;
     }
     
-    public String getName() {
+    protected String getName() {
         return this.name;
     }
 
-    public boolean isAvailability(){
+    protected boolean isAvailability(){
         return this.availability > 0;
     }
 
