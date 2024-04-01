@@ -14,6 +14,16 @@ public class LibraryManagement {
      * - Make sure to implement Inheritance and Polymorphism properly
      */
     public static void main(String[] args) {
+        Bible bible1 = new Bible("Juz Amma", "God", 7, "Islam");
+        Documentary doc1 = new Documentary("Our Planet", "Neil Labao", 2, "Earth and global warming");
 
+        bible1.displayInfo();
+        doc1.displayInfo();
+
+        bible1.borrowBook();
+        doc1.borrowBook();
+
+        bible1.displayInfo();
+        doc1.displayInfo();
     }
 }
