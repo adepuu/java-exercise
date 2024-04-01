@@ -31,9 +31,9 @@ public class Main {
         librarian.manageMaterial(book1, "return");
         librarian.manageMaterial(magazine1, "return");
         librarian.manageMaterial(journal1, "return");
-        librarian.manageMaterial(journal1, "returning");
+        librarian.manageMaterial(journal1, "returning"); // testing invalid input
         librarian.manageMaterial(journal1, "return");
-        librarian.manageMaterial(journal1, "return");
+        librarian.manageMaterial(journal1, "return"); // trying to return a not-borrowed material
     }
 
 }
