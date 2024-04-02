@@ -24,7 +24,9 @@ public class Main {
             }
             try {
                 if (searchTree.search(Integer.parseInt(data))) {
+                    System.out.println("");
                     System.out.println(data + " is already exist in the tree");
+                    System.out.println("");
                     i--;
                     continue;
                 } else {
@@ -58,7 +60,9 @@ public class Main {
         try {
             return Integer.parseInt(n);
         } catch (Exception e) {
+            System.out.println("");
             System.out.println("Please enter a valid number or 'q' to quit");
+            System.out.println("");
             return enterSize(scanner);
         }
     }
@@ -79,7 +83,9 @@ public class Main {
                 System.out.println(searchNumber + " is not present in the tree");
             }    
         } catch (Exception e) {
+            System.out.println("");
             System.out.println("Please enter a valid number or 'q' to quit");
+            System.out.println("");
             searchNumber(scanner, searchTree);
         }
 
