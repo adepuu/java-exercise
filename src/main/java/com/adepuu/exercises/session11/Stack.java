@@ -18,7 +18,7 @@ public class Stack {
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
 
-    private LinkedList<Integer> stackArray= new LinkedList<Integer>();
+    private LinkedList<Integer> stackArray = new LinkedList<Integer>();
 
     public void push(int value) {
         stackArray.add(value);

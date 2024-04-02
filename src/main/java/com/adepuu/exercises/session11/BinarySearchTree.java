@@ -1,5 +1,6 @@
 package com.adepuu.exercises.session11;
 
+import com.adepuu.dsa.datastructure.BinaryTree.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,21 +25,117 @@ public class BinarySearchTree {
      *
      */
 
+    public class Node {
+        int value;
+        Node left;
+        Node right;
+
+        Node(int value) {
+            this.value = value;
+            right = null;
+            left = null;
+        }
+    }
+
+    Node root;
+
+    public BinarySearchTree() {
+        root = null;
+    }
+
+    // Method to insert a new node with the given value
+    public void insert(int value) {
+        root = insertRec(root, value);
+    }
+
+    // Recursive method to insert a new node
+    private Node insertRec(Node root, int value) {
+        if (root == null) {
+            root = new Node(value);
+            return root;
+        }
+
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+        return root;
+    }
+
+    // Method to print the tree in-order (left, root, right)
+    public void inorder() {
+        inorderRec(root);
+    }
+
+    // Recursive method to print the tree in-order
+    private void inorderRec(Node root) {
+        if (root != null) {
+            // Traverse the left subtree
+            inorderRec(root.left);
+
+            // Visit the root node
+            System.out.print(root.value + " ");
+
+            // Traverse the right subtree
+            inorderRec(root.right);
+        }
+    }
+
+    // Method to search for a value in the BST
+    public boolean search(int value) {
+        return searchRec(root, value);
+    }
+
+    // Recursive method to search for a value
+    private boolean searchRec(Node root, int value) {
+        if (root == null) {
+            return false;
+        }
+        if (value == root.value) {
+            return true;
+        }
+        return value < root.value ? searchRec(root.left, value) : searchRec(root.right, value);
+    }
+
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Binary Search Tree");
+        System.out.println("==================");
         System.out.print("Enter the number of elements (N): ");
         int size = input.nextInt();
-        System.out.println("Enter " + size + " elements for the array:");
-        input.close();
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        System.out.println("Enter " + size + " number of elements:");
+        BinaryTree bt = new BinaryTree();
         for (int i = 0; i < size; i++) {
-            arrayList.add(input.nextInt());
+            try{
+                int number = Integer.parseInt(input.next());
+                bt.insert(number);
+            }
+            catch(NumberFormatException ex){
+                System.out.println("Please enter a valid number or 'q' to finish'");
+                i--;
+                continue;
+            }
         }
-
-        System.out.println("List Data:"+arrayList);
+        System.out.println("Enter number to search or 'q' to finish :");
+        String number;
+        while (true){
+            try{
+                number = input.next().toLowerCase();
+                if(number.equals("q")){
+                    break;
+                }
+                else{
+                    var isExist = bt.search(Integer.parseInt(number));
+                    System.out.print(isExist?"Exist\n":"Not Exist\n");
+                }
+            }
+            catch(NumberFormatException ex){
+                System.out.println("Please enter a valid number to search or 'q' to finish'");
+                continue;
+            }
+        }
         input.close();
-
     }
 }
