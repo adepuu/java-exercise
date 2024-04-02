@@ -1,7 +1,7 @@
 package com.adepuu.exercises.session11;
 import java.util.*;
 
-public class BinarySearchTree <Target> {
+public class BinarySearchTree {
     /**
      * Write a Java binary search tree program that can scale dynamically
      * <p>
@@ -20,34 +20,6 @@ public class BinarySearchTree <Target> {
      * - The program should provide a clear and straightforward way for the user to exit the continuous search loop and terminate the program, such as entering a specific keyword or command.
      *
      */
-
-    /*
-    private final Target value;
-    private final List<BinarySearchTree<Target>> childNodes;
-
-    public BinarySearchTree(Target value) {
-        this.value = value;
-        this.childNodes = new LinkedList<>();
-    }
-    public List<BinarySearchTree<Target>> getChildNode() {
-        return childNodes;
-    }
-
-    public Target getValue() {
-        return value;
-    }
-
-    public  void addChild(BinarySearchTree<Target> childNodes) {
-
-    }
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-    }
-
-     */
-
 
     private TreeNode root;
 
@@ -80,29 +52,6 @@ public class BinarySearchTree <Target> {
 
             return root;
         }
-
-        /*
-        if (key == root.data) {
-            System.out.println("Warning: Number " + key + " already exists in the binary search tree. Please enter another number.");
-            Scanner scanner = new Scanner(System.in);
-            while (true) {
-                System.out.print("Enter another number: ");
-                if (scanner.hasNextInt()) {
-                    int newKey = scanner.nextInt();
-                    if (newKey != key) {
-                        root = insertRec(root, newKey);
-                        break;
-                    } else {
-                        System.out.println("Duplicate number. Please enter a different number.");
-                    }
-                } else {
-                    System.out.println("Invalid input. Please enter a valid integer.");
-                    scanner.next();
-                }
-            }
-            return root;
-        }
-         */
 
         if (key < root.data) {
             root.left = insertRec(root.left, key);
@@ -156,7 +105,6 @@ public class BinarySearchTree <Target> {
 
         System.out.println("Enter " + n + " numbers:");
         for (int i = 0; i < n; i++) {
-//            bst.insert(scanner.nextInt());
             String scanNumber = scanner.nextLine();
 
             try {
@@ -164,11 +112,8 @@ public class BinarySearchTree <Target> {
                 bst.insert(Integer.parseInt(scanNumber));
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
-//                continue;
-//                break;
                 i--;
             }
-
         }
 
 
@@ -188,7 +133,6 @@ public class BinarySearchTree <Target> {
                 number = Integer.parseInt(input);
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
-////                continue;
                 break;
             }
 
