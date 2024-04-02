@@ -33,7 +33,9 @@ public class Main {
                     searchTree.insert(Integer.parseInt(data));
                 }  
             } catch (Exception e) {
+                System.out.println("");
                 System.out.println("Please enter a valid number or 'q' to quit");
+                System.out.println("");
                 i--;
                 continue;
             }
