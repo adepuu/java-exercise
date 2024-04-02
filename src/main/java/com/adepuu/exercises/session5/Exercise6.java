@@ -1,4 +1,5 @@
 package com.adepuu.exercises.session5;
+import java.util.*;
 
 import java.util.Arrays;
 
@@ -13,13 +14,50 @@ public class Exercise6 {
      * [ 1, 2, 1, 3, 5, 1 ]  to
      * Final result: [2, 3, 5]
      */
-    public int[] removeDuplicates(int[] array, int key) {
-        int index = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != key) {
-                array[index++] = array[i];
-            }
-        }
-        return Arrays.copyOf(array, index);
-    }
+
+//    public static int[] removeElement(int[] nums, int val) {
+//        List<Integer> newList = new ArrayList<>();
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] != val) {
+//                newList.add(nums[i]);
+//            }
+//        }
+//
+//        int[] result = new int[newList.size()];
+//        for (int i = 0; i < newList.size(); i++) {
+//            result[i] = newList.get(i);
+//        }
+//
+//        return result;
+//    }
+
+//    public static void main(String[] args) {
+//        int[] nums1 = {1, 2, 1, 3, 5, 1};
+//        int[] nums2 = {1, 2, 1, 3, 5, 1};
+//
+//        int[] result1 = removeElement(nums1, 1);
+//        int[] result2 = removeElement(nums2, 5);
+//
+//        System.out.print("Result 1: ");
+//        for (int num : result1) {
+//            System.out.print(num + " ");
+//        }
+//        System.out.println();
+//
+//        System.out.print("Result 2: ");
+//        for (int num : result2) {
+//            System.out.print(num + " ");
+//        }
+//        System.out.println();
+//
+//    public int[] removeDuplicates(int[] array, int key) {
+//        int index = 0;
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i] != key) {
+//                array[index++] = array[i];
+//            }
+//        }
+//        return Arrays.copyOf(array, index);
+//    }
 }

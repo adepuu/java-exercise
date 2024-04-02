@@ -1,10 +1,5 @@
 package com.adepuu.exercises.session5;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import java.util.*;
 public class Exercise8 {
     /**
      * Java String Program to Find all Duplicates on Array
@@ -21,15 +16,23 @@ public class Exercise8 {
      * Input: nums = [1]
      * Output: []
      */
-    public List<Integer> findDuplicates(int[] nums) {
-        Set<Integer> passed = new HashSet<>();
-        List<Integer> duplicates = new ArrayList<>();
+    public static List<Integer> findDuplicate(int[] arr) {
+        Map<Integer, Boolean> isExist = new HashMap<>();
+        List<Integer> newArr = new ArrayList<>();
 
-        for (int num : nums) {
-            if (!passed.add(num)) {
-                duplicates.add(num);
+        for (int i = 0; i < arr.length; i++) {
+            if (!isExist.containsKey(arr[i])) {
+                isExist.put(arr[i], true);
+            } else {
+                newArr.add(arr[i]);
             }
         }
-        return duplicates;
+
+        return newArr;
+    }
+    public static void main(String[] args) {
+        System.out.println(findDuplicate(new int[]{4, 3, 2, 7, 8, 2, 3, 1}));
+        System.out.println(findDuplicate(new int[]{1, 1, 2}));
+        System.out.println(findDuplicate(new int[]{1}));
     }
 }

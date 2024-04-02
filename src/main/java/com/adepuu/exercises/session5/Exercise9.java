@@ -1,6 +1,5 @@
 package com.adepuu.exercises.session5;
-
-import java.util.Stack;
+import java.util.*;
 
 public class Exercise9 {
     /**
@@ -18,18 +17,29 @@ public class Exercise9 {
      * Input: temperatures = [30,60,90]
      * Output: [1,1,0]
      */
-    public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer> stack = new Stack<>();
+
+    public static int[] getDailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
 
         for (int i = 0; i < temperatures.length; i++) {
-            while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
-                int idx = stack.pop();
-                result[idx] = i - idx;
+            int days = 0;
+            int j = i + 1;
+            while ( j < temperatures.length) {
+                days++;
+                if (temperatures[j] > temperatures[i]) {
+                    result[i] = days;
+                    break;
+                }
+
+                j++;
             }
-            stack.push(i);
         }
 
         return result;
+    }
+    public static void main(String[] args) {
+        int[] temperatures = {30, 40, 50, 60};
+        int[] result = getDailyTemperatures(temperatures);
+        System.out.println(Arrays.toString(result));
     }
 }

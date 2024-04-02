@@ -1,4 +1,5 @@
 package com.adepuu.exercises.session11;
+import java.util.ArrayList;
 
 public class Queue {
     /**
@@ -16,4 +17,46 @@ public class Queue {
      * - Memory Efficiency: The queue should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
+
+    private ArrayList<String> queueList;
+
+    public Queue() {
+        queueList = new ArrayList<>();
+    }
+
+    public void enqueue(String value) {
+        queueList.add(value);
+    }
+
+    public String dequeue() {
+        if (queueList.isEmpty()) {
+            return "Queue is empty. Cannot dequeue.";
+        } else {
+            return queueList.remove(0);
+        }
+    }
+
+    public String peek() {
+        if (queueList.isEmpty()) {
+            return "Queue is empty.";
+        } else {
+            return queueList.get(0);
+        }
+    }
+
+    public boolean isEmpty() {
+        return queueList.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+        queue.enqueue("Lakaka");
+        queue.enqueue("Sir Ole");
+        queue.enqueue("Penaldo");
+
+
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.peek());
+    }
 }

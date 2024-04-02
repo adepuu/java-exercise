@@ -1,16 +1,21 @@
 package com.adepuu.exercises.session5;
 
 public class Exercise1 {
-    public int getHighestNumber(int[] input) {
-        if (input.length == 0) return 0;
 
-        int max = input[0]; // Initialize max with the first element of the array
+    public static int findMax (int[] arr) {
+        int getMax= Integer.MIN_VALUE;
 
-        for (int i = 1; i < input.length; i++) { // Start from the second element
-            if (input[i] > max) {
-                max = input[i]; // Update max if the current element is larger
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > getMax) {
+                getMax = arr[i];
             }
         }
-        return max;
+
+        return getMax;
+    }
+
+    public static void main (String[] args) {
+        int[] array = {7, 2, 5, 1, 4};
+        System.out.print(findMax(array));
     }
 }
