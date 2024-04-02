@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session11;
 
+import java.util.LinkedList;
+
 public class Stack {
     /**
      * Write a Java stack program that can scale dynamically
@@ -15,7 +17,45 @@ public class Stack {
      * - Memory Efficiency: The stack should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
+    private int top;
+
+    private LinkedList<Integer> stackArray= new LinkedList<Integer>();
+
+    public void push(int value) {
+        stackArray.add(value);
+        top++;
+    }
+
+    public int pop() {
+        if (top < 0) {
+            System.out.println("Stack is empty. Cannot pop.");
+            return -1;
+        } else {
+            return stackArray.removeLast();
+        }
+    }
+
+    public int peek() {
+        if (top < 0) {
+            System.out.println("Stack is empty.");
+            return -1;
+        } else {
+            return stackArray.getLast();
+        }
+    }
+
+
     public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(3);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
 
     }
 }
