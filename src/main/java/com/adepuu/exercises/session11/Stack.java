@@ -1,6 +1,7 @@
 package com.adepuu.exercises.session11;
 
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class Stack {
     /**
@@ -29,6 +30,7 @@ public class Stack {
             System.out.println("Stack is empty. Cannot pop.");
             return -1;
         } else {
+
             return stackArray.removeLast();
         }
     }
