@@ -30,7 +30,6 @@ public class Stack {
             System.out.println("Stack is empty. Cannot pop.");
             return -1;
         } else {
-
             return stackArray.removeLast();
         }
     }
