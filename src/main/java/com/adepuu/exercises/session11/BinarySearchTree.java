@@ -22,6 +22,8 @@ public class BinarySearchTree {
      */
 
     private TreeNode root;
+    ArrayList<Integer> data;
+    TreeNode tempData;
 
     public BinarySearchTree() {
         root = null;
@@ -82,8 +84,8 @@ public class BinarySearchTree {
 
 
     public void getData(int n) {
-        ArrayList<Integer> data = new ArrayList<>();
-        TreeNode tempData = root;
+        data = new ArrayList<>();
+        tempData = root;
 
         for(int i = 0; i < n; i++) {
             data.add(tempData.data);
