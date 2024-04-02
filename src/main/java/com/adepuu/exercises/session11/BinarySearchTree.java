@@ -34,7 +34,6 @@ public class BinarySearchTree {
     }
 
     private TreeNode insertRec(TreeNode root, int key) {
-
         if (root == null) {
             root = new TreeNode(key);
             return root;
@@ -69,7 +68,6 @@ public class BinarySearchTree {
     }
 
     private boolean searchRec(TreeNode root, int key) {
-
         if (root == null || root.data == key) {
             return root != null;
         }
@@ -108,7 +106,6 @@ public class BinarySearchTree {
             String scanNumber = scanner.nextLine();
 
             try {
-
                 bst.insert(Integer.parseInt(scanNumber));
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
@@ -134,10 +131,15 @@ public class BinarySearchTree {
                 break;
             }
 
-            if (bst.search(number)) {
-                System.out.println("Number " + number + " is found in the binary search tree.");
-            } else {
-                System.out.println("Number " + number + " is not found in the binary search tree.");
+            try {
+                if (bst.search(number)) {
+                    System.out.println("Number " + number + " is found in the binary search tree.");
+                } else {
+                    System.out.println("Number " + number + " is not found in the binary search tree.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
+                break;
             }
         }
 
