@@ -152,17 +152,30 @@ public class BinarySearchTree <Target> {
         System.out.print("Enter the number of elements (N): ");
         int n = scanner.nextInt();
         int number;
+        scanner.nextLine();
 
         System.out.println("Enter " + n + " numbers:");
         for (int i = 0; i < n; i++) {
-            bst.insert(scanner.nextInt());
+//            bst.insert(scanner.nextInt());
+            String scanNumber = scanner.nextLine();
+
+            try {
+
+                bst.insert(Integer.parseInt(scanNumber));
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
+//                continue;
+//                break;
+                i--;
+            }
+
         }
 
 
 
         while (true) {
             System.out.print("Enter a number to looking for (or 'q' to exit): ");
-            String input = scanner.next();
+            String input = scanner.nextLine();
 
             if (input.equals("q")) {
                 System.out.print("Your Data : ");
@@ -175,7 +188,7 @@ public class BinarySearchTree <Target> {
                 number = Integer.parseInt(input);
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number or 'q' to terminate.");
-//                continue;
+////                continue;
                 break;
             }
 
