@@ -18,7 +18,7 @@ public class LibraryManagement {
 
         library.addMaterial(new Book("Algoritma Pemrograman", "Bukan Saya", 2));
         library.addMaterial(new Journal("Sistem pengukur kemiripan menggunakan Jaro winkler", "Saya", "UMRAH",1));
-        library.borrowMaterial("Algoritma Pemrograman");
+        library.borrowMaterial("Algoritma Pemrograma");
         library.borrowMaterial("Algoritma Pemrograman");
         library.returnMaterial("Algoritma Pemrograman");
         library.borrowMaterial("Sistem pengukur kemiripan menggunakan Jaro winkler");

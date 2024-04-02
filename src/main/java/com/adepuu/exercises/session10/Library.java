@@ -16,7 +16,7 @@ class Library {
 
     public void borrowMaterial(String title){
         for(LibraryMaterial material : materials){
-            if(material.getTittle().equals(title)){
+            if(material.getTittle().equalsIgnoreCase(title)){
                 if(material.getQty() > 0){
                     System.out.println("You have borrowed: " +title);
                     material.borrow();
@@ -31,7 +31,7 @@ class Library {
 
     public void returnMaterial(String title){
         for(LibraryMaterial material : materials){
-            if(material.getTittle().equals(title)){
+            if(material.getTittle().equalsIgnoreCase(title)){
                 if(material.getBorrowedqty() > 0){
                     System.out.println("Thank you for returning: " +title);
                     material.returnMaterial();
