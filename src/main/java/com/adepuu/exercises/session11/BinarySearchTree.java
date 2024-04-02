@@ -1,6 +1,56 @@
 package com.adepuu.exercises.session11;
 
+import java.util.Scanner;
+
 public class BinarySearchTree {
+    NodeTree root;
+    BinarySearchTree(){
+        root = null;
+    }
+
+    public void insert(int value){
+        root = insertRec(root,value);
+    }
+
+    private NodeTree insertRec(NodeTree root, int value) {
+        if (root == null) {
+            root = new NodeTree(value);
+            return root;
+        }
+
+        if (value < root.value) {
+            root.left = insertRec(root.left, value);
+        } else if (value > root.value) {
+            root.right = insertRec(root.right, value);
+        }
+
+        return root;
+    }
+
+
+
+    public void search(int value) {
+        searchRec(root, value);
+    }
+
+    // Recursive method to search for a value
+    private void searchRec(NodeTree root, int value)
+    {
+        try {
+            if (value < root.value) {
+                searchRec(root.left,value);
+            }
+            if(value > root.value){
+                searchRec(root.right, value);
+            }
+        }catch (NullPointerException e){
+            System.out.println("Number was not found");
+            return;
+        }
+        if (value == root.value) {
+            System.out.println("Number " + value + " has been found!");
+        }
+    }
     /**
      * Write a Java binary search tree program that can scale dynamically
      * <p>
@@ -20,6 +70,26 @@ public class BinarySearchTree {
      *
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        while (true) {
+            System.out.print("Input Number (press n to stop) = ");
+            String input = scanner.nextLine();
+            if (input.equals("n")) {
+                break;
+            }
+            binarySearchTree.insert(Integer.parseInt(input));
+        }
+        while (true){
+            System.out.print("Input Target (press n to stop) = ");
+            String input = scanner.nextLine();
+            if(input.equals("n")){
+                scanner.close();
+                break;
+            }
+            binarySearchTree.search(Integer.parseInt(input));
+        }
+
 
     }
 }
