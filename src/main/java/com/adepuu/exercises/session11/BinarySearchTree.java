@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session11;
 
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class BinarySearchTree {
     /**
      * Write a Java binary search tree program that can scale dynamically
@@ -19,7 +23,22 @@ public class BinarySearchTree {
      * - The program should provide a clear and straightforward way for the user to exit the continuous search loop and terminate the program, such as entering a specific keyword or command.
      *
      */
+
+
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Binary Search Tree");
+        System.out.print("Enter the number of elements (N): ");
+        int size = input.nextInt();
+        System.out.println("Enter " + size + " elements for the array:");
+        input.close();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            arrayList.add(input.nextInt());
+        }
+
+        System.out.println("List Data:"+arrayList);
+        input.close();
 
     }
 }
