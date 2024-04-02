@@ -1,6 +1,9 @@
 package com.adepuu.exercises.session11;
 
-public class Stack {
+import java.util.LinkedList;
+import java.util.List;
+
+public class Stack<T> {
     /**
      * Write a Java stack program that can scale dynamically
      * <p>
@@ -15,7 +18,61 @@ public class Stack {
      * - Memory Efficiency: The stack should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
-    public static void main(String[] args) {
+    private List<T> resultList;
 
+    public Stack() {
+        this.resultList = new LinkedList<>();
+    }
+
+    public void push(T value) {
+        resultList.addLast(value);
+    }
+
+    public T pop() {
+        if (resultList.isEmpty()) {
+            System.out.println("Stack is empty");
+            return null;
+        }
+
+        return resultList.removeLast();
+    }
+
+    public void shift(T value) {
+        resultList.addFirst(value);
+    }
+
+    public T unshift() {
+        if (resultList.isEmpty()) {
+            System.out.println("Stack is empty");
+            return null;
+        }
+
+        return resultList.removeFirst();
+    }
+
+    public T peek() {
+        if (resultList.isEmpty()) {
+            System.out.println("Stack is empty");
+        }
+        return resultList.getLast();
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack.peek()); // -> 3
+
+//        stack.shift(4);
+//        stack.shift(5);
+//        System.out.println(stack.peek()); // -> 3
+
+        System.out.println(stack.pop()); // -> 3
+        System.out.println(stack.peek()); // -> 2
+
+//        System.out.println(stack.unshift()); // -> 5
+//        System.out.println(stack.peek()); // -> 2
     }
 }
