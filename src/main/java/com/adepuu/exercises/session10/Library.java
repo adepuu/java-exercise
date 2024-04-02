@@ -18,8 +18,8 @@ class Library {
         for(LibraryMaterial material : materials){
             if(material.getTittle().equals(title)){
                 if(material.getQty() > 0){
-                    material.borrow();
                     System.out.println("You have borrowed: " +title);
+                    material.borrow();
                 }else {
                     System.out.println("Sorry, "+title+" is not available at the moment.");
                 }
@@ -33,8 +33,8 @@ class Library {
         for(LibraryMaterial material : materials){
             if(material.getTittle().equals(title)){
                 if(material.getBorrowedqty() > 0){
-                    material.returnMaterial();
                     System.out.println("Thank you for returning: " +title);
+                    material.returnMaterial();
                 }else {
                     System.out.println("Sorry, "+title+" is not borrowed yet");
                 }
