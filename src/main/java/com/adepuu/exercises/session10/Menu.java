@@ -97,8 +97,9 @@ public class Menu {
               Select menu option below:
               1. Get list of Materials
               2. Create Material
-              3. Logout
-              4. Close app
+              3. Get list of borrowed Material
+              4. Logout
+              5. Close app
               """);
       System.out.print("Choose option: ");
       String input = scanner.next();
@@ -106,11 +107,12 @@ public class Menu {
       switch (input) {
         case "1" -> library.getMaterials();
         case "2" -> library.addMaterial();
-        case "3" -> {
+        case "3" -> library.getBorrowedList();
+        case "4" -> {
           user.setIsLogin(false);
           openApp();
         }
-        case "4" -> {
+        case "5" -> {
           setIsOpen();
           user.setIsLogin(false);
         }

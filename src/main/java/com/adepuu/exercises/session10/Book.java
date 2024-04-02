@@ -7,6 +7,10 @@ public class Book extends Material {
     super(title, count, "Book");
   }
 
+  public Book(String title, int count, String type, String dateBorrowed, String dateReturned) {
+    super(title, count, type, dateBorrowed, dateReturned);
+  }
+
   @Override
   boolean borrow() {
     if (getCount() > 0) {

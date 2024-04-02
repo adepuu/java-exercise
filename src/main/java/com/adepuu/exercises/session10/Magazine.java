@@ -7,7 +7,9 @@ public class Magazine extends Material {
   public Magazine(String title, int count) {
     super(title, count, "Magazine");
   }
-
+  public Magazine(String title, int count, String type, String dateBorrowed, String dateReturned) {
+    super(title, count, type, dateBorrowed, dateReturned);
+  }
   @Override
   boolean borrow() {
     if (getCount() > 0) {

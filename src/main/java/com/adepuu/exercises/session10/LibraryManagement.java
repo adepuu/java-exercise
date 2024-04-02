@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session10;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Scanner;
 
 public class LibraryManagement {
@@ -20,19 +24,6 @@ public class LibraryManagement {
     Scanner scanner = new Scanner(System.in);
     Menu menu = new Menu(scanner);
     menu.openApp();
-//    Library myLibrary = new Library(scanner);
-
-    // Menambahkan material
-//    myLibrary.addMaterial(new Book("Pemrograman Java", 3));
-//    myLibrary.addMaterial(new Magazine("Popular", 2));
-
-    // Meminjam dan mengembalikan material
-//    myLibrary.borrowMaterial();
-//    myLibrary.returnMaterial("Pemrograman Java");
-
-    // Mencetak status material
-//    myLibrary.getMaterials();
-
     scanner.close();
   }
 }
