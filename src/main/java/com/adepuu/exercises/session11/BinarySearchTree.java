@@ -132,22 +132,18 @@ public class BinarySearchTree <Target> {
 
 
 
-//    public void getData(int n) {
-//        ArrayList<Integer> data = new ArrayList<>();
-//        int temp = root.data;
-//        TreeNode tempData;
-//
-//
-//        for(int i = 0; i < n; i++) {
-////            data.add(root.data);
-//            System.out.println(root.right.data);
-////            temp = root.right.data;
-////            root.right;
-//
-//        }
-//
-////        System.out.println(root.data);
-//    }
+    public void getData(int n) {
+        ArrayList<Integer> data = new ArrayList<>();
+        TreeNode tempData = root;
+
+        for(int i = 0; i < n; i++) {
+            data.add(tempData.data);
+            tempData =  tempData.right;
+
+        }
+
+        System.out.println(data.toString());
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -169,8 +165,8 @@ public class BinarySearchTree <Target> {
             String input = scanner.next();
 
             if (input.equals("q")) {
-//                System.out.println();
-//                bst.getData(n);
+                System.out.print("Your Data : ");
+                bst.getData(n);
                 System.out.println("Exiting program and thank you !");
                 break;
             }
