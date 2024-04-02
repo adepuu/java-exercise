@@ -81,8 +81,6 @@ public class BinarySearchTree {
         return searchRec(root.left, key);
     }
 
-
-
     public void getData(int n) {
         data = new ArrayList<>();
         tempData = root;
@@ -117,8 +115,6 @@ public class BinarySearchTree {
                 i--;
             }
         }
-
-
 
         while (true) {
             System.out.print("Enter a number to looking for (or 'q' to exit): ");
