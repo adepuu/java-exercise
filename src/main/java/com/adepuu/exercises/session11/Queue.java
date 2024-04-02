@@ -1,6 +1,11 @@
 package com.adepuu.exercises.session11;
 
+import com.adepuu.dsa.datastructure.BinaryTree.Node;
+
+import java.util.LinkedList;
+
 public class Queue {
+
     /**
      * Write a Java queue program that can scale dynamically
      * <p>
@@ -16,4 +21,84 @@ public class Queue {
      * - Memory Efficiency: The queue should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
+
+    private int maxSize;
+    private int front;
+    private int rear;
+    private LinkedList<Integer> queueArray;
+
+    int data;
+    Queue next;
+    Queue head;
+    Queue tail;
+    public Queue(int data) {
+        queueArray = new LinkedList<>();
+        this.data = data;
+        next = null;
+    }
+
+    public void enqueue(int value) {
+        Queue newNode = new Queue(value);
+        if(head == null){
+            head = newNode;
+            tail = newNode;
+            System.out.println(head.data + " Value has been added");
+        }else{
+            newNode.next = head;
+            head = newNode;
+            System.out.println(head.data + " Value has been added");
+        }
+    }
+
+    public void dequeue() {
+        if (head == null || head.next == null) {
+            System.out.println("Stack is Empty");
+            return;
+        }
+        if (tail == head) {
+            System.out.println(head.data + " Value has been pop");
+            tail = null;
+            head = null;
+            return;
+        }
+        Queue current = head;
+        while (current.next != null){
+
+            if(current.next == tail){
+                System.out.println(tail.data + " Value has been pop");
+                tail = current;
+                break;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+//
+    public int peek() {
+        if (head == null) {
+            System.out.println("Stack is empty.");
+            return 0;
+        } else {
+            int value = tail.data;
+            tail = tail.next;
+            System.out.println("Peek value : " + value);
+            return value;
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue queue = new Queue(10);
+        queue.enqueue(1);
+        queue.enqueue(4);
+        queue.enqueue(12);
+        queue.enqueue(15);
+
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+
+        
+        queue.peek();
+
+    }
 }
