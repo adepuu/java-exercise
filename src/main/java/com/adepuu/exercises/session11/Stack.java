@@ -1,4 +1,5 @@
 package com.adepuu.exercises.session11;
+import java.util.ArrayList;
 
 public class Stack {
     /**
@@ -15,7 +16,47 @@ public class Stack {
      * - Memory Efficiency: The stack should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
-    public static void main(String[] args) {
 
+    private ArrayList<Integer> stackList;
+
+    public Stack() {
+        stackList = new ArrayList<>();
+    }
+
+    public void push(int value) {
+        stackList.add(value);
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty. Cannot pop.");
+            return stackList.size();
+        } else {
+            return stackList.remove(stackList.size() - 1);
+        }
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return stackList.size();
+        } else {
+            return stackList.get(stackList.size() - 1);
+        }
+    }
+
+    public boolean isEmpty() {
+        return stackList.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(58);
+        stack.push(80);
+        stack.push(33);
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
     }
 }
