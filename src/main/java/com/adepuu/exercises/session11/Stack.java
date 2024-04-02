@@ -31,18 +31,28 @@ public class Stack {
 
     // Pop from LinkedList
     public String pop() {
-        String tempString = stackList.getLast();
-        stackList.remove(stackList.size() - 1);
+        if (stackList.isEmpty()) {
+            return ("Stack is empty, cannot remove from stack");
+        }
+        String tempString = stackList.removeLast();
         return (tempString + " removed from stack");
     }
 
     // Peek from LinkedList
     public String peek() {
+        if (stackList.isEmpty()) {
+            return ("Stack is empty, cannot peek the top of the stack");
+        }
         return ("The top of the stack is " + stackList.getLast());
     }
 
     public static void main(String[] args) {
         Stack cardStack = new Stack();
+
+        System.out.println(cardStack.peek());
+        System.out.println(cardStack.pop());
+        System.out.println("");
+
         cardStack.push("Ace");
         cardStack.push("Two");
         cardStack.push("Three");
