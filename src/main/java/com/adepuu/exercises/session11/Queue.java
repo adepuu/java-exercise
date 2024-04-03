@@ -19,54 +19,66 @@ public class Queue {
      * - Memory Efficiency: The queue should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
-    private int maxSize;
-    private int front;
-    private int rear;
-    private LinkedList<Integer> queueList;
+    private Node head;
+    private Node tail;
 
-    public Queue(int size) {
-        queueList = new LinkedList<Integer>();
-    }
+    private class Node {
+        int data;
+        Node next;
 
-    public void enqueue(int value) {
-        if (rear == maxSize - 1) {
-            System.out.println("Queue is full. Cannot enqueue " + value);
-        } else {
-            value = ++rear;
-            queueList.add(value);
+        Node(int data) {
+            this.data = data;
+            this.next = null;
         }
     }
 
-    public int dequeue() {
-        if (front > rear) {
-            System.out.println("Queue is empty. Cannot dequeue.");
-            return -1;
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
         } else {
-            return queueList.remove(front);
+            tail.next = newNode;
+            tail = newNode;
+        }
+        System.out.println(value + " Value has been added");
+    }
+
+    public void dequeue() {
+        if (head == null) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+        System.out.println(head.data + " Value has been removed");
+        head = head.next;
+        if (head == null) {
+            tail = null;
         }
     }
 
     public int peek() {
-        if (front > rear) {
+        if (head == null) {
             System.out.println("Queue is empty.");
-            return -1;
+            return 0;
         } else {
-            return queueList.peek();
+            System.out.println("Peek value : " + head.data);
+            return head.data;
         }
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        Queue queue = new Queue(100);
+        Queue queue = new Queue();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(5);
+        queue.enqueue(7);
+        queue.enqueue(8);
+        queue.enqueue(3);
 
-        int n = input.nextInt();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
 
-        for (int i = 0; i < n; i++){
-            queue.enqueue(input.nextInt());
-        }
-
-        System.out.println("Element Deque: "+queue.dequeue());
-        System.out.println("Element Deque: "+queue.dequeue());
-        System.out.println(queue.peek());
+        queue.peek();
     }
 }
