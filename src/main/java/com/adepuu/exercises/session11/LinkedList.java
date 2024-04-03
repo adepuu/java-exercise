@@ -62,6 +62,53 @@ public class LinkedList<T> {
         return data;
     }
 
+    private Node<T> insertRec(Node<T> root, T data) {
+        if (root == null) {
+            return new Node<>(data);
+        }
+
+        Integer value = (Integer) data;
+        Integer rootValue = (Integer) root.data;
+
+        if (root.data.equals(data)) {
+            return root;
+        }
+
+        if (value < rootValue) {
+            root.left = insertRec(root.left, data);
+        } else if (value > rootValue) {
+            root.right = insertRec(root.right, data);
+        }
+        return root;
+    }
+
+    public void insert(T data) {
+        head = insertRec(head, data);
+    }
+
+    private boolean searchRec(Node<T> root, T data) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.data.equals(data)) {
+            return true;
+        }
+
+        boolean found = false;
+        if (root.left != null) {
+            found = searchRec(root.left, data);
+        }
+        if (!found && root.right != null) {
+            found = searchRec(root.right, data);
+        }
+        return found;
+    }
+
+    public String search(T data) {
+        return searchRec(head, data) ? data + " is available." : data + " is not available.";
+    }
+
 
     public void printList() {
         Node<T> currentNode = head;
@@ -70,6 +117,18 @@ public class LinkedList<T> {
             currentNode = currentNode.next;
         }
         System.out.println();
+    }
+
+    private void printInOrderRec(Node<T> root) {
+        if (root != null) {
+            printInOrderRec(root.left);
+            System.out.println(root.data + " ");
+            printInOrderRec(root.right);
+        }
+    }
+
+    public void printInOrder() {
+        printInOrderRec(head);
     }
 
 }
