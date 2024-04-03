@@ -1,7 +1,14 @@
 package com.adepuu.exercises.session11;
 
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 
 public class Stack {
     /**
@@ -19,29 +26,54 @@ public class Stack {
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
 
-    private LinkedList<Integer> stackArray = new LinkedList<Integer>();
+        private Node top;
 
-    public void push(int value) {
-        stackArray.add(value);
-    }
+        public Stack() {
+            this.top = null;
+        }
+
+        public void push(int data) {
+            Node newNode = new Node(data);
+            if (top == null) {
+                top = newNode;
+            } else {
+                newNode.next = top;
+                top = newNode;
+            }
+        }
 
     public int pop() {
-        if (stackArray.isEmpty()) {
-            System.out.println("Stack is empty. Cannot pop.");
+        if(isNotEmpty()){
+            int data = top.data;
+            top = top.next;
+            return data;
+        }
+        else {
+            System.out.println("Stack is empty");
             return -1;
-        } else {
-            return stackArray.removeLast();
         }
     }
 
     public int peek() {
-        if (stackArray.isEmpty()) {
-            System.out.println("Stack is empty.");
-            return -1;
-        } else {
-            return stackArray.getLast();
+        if(isNotEmpty()){
+            return top.data;
         }
+        System.out.println("Stack is empty");
+        return -1;
     }
+
+    public boolean isNotEmpty() {
+        return top != null;
+    }
+
+        public void print() {
+            Node current = top;
+            while (current != null) {
+                System.out.print(current.data + " ");
+                current = current.next;
+            }
+            System.out.println();
+        }
 
 
     public static void main(String[] args) {
@@ -50,11 +82,21 @@ public class Stack {
         stack.push(2);
         stack.push(3);
         stack.push(4);
+        stack.push(6);
+        stack.push(5);
 
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        stack.push(5);
+        stack.push(6);
+        stack.push(3);
+        System.out.println(stack.peek());
         System.out.println(stack.pop());
         System.out.println(stack.peek());
 
