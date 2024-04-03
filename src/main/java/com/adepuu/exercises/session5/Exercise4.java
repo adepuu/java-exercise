@@ -1,8 +1,5 @@
 package com.adepuu.exercises.session5;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Exercise4 {
     /**
@@ -11,23 +8,31 @@ public class Exercise4 {
      * Input: [ 1, 2, 2, 3, 3, 3, 4, 5 ]
      * Output: [ 1, 2, 3, 4, 5 ]
      */
-    public int[] removeDuplicates(int[] data) {
-        // Hash map which will store the elements which have appeared previously.
-        HashMap<Integer, Boolean> mp = new HashMap<>();
-        for (int datum : data) {
-            // Print the element if it is not present there in the hash map
-            // and Insert the element in the hash map
-            mp.putIfAbsent(datum, true);
+
+    public static int[] removeDuplicate(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+
+        for(int num : arr) {
+            if(!set.contains(num)) {
+                set.add(num);
+                list.add(num);
+            }
         }
 
-        // Create a list to store unique elements
-        List<Integer> uniqueList = new ArrayList<>(mp.keySet());
-
-        // Convert the list to an array and return
-        int[] result = new int[uniqueList.size()];
-        for (int i = 0; i < uniqueList.size(); i++) {
-            result[i] = uniqueList.get(i);
+        int[] newArray = new int[list.size()];
+        for(int i = 0; i < list.size(); i++) {
+            newArray[i] = list.get(i);
         }
-        return result;
+
+        return newArray;
+    }
+    public static void main(String[] args) {
+        int[] array = {1, 2, 2, 3, 3, 3, 4, 5};
+        int[] result = removeDuplicate(array);
+
+        for(int num: result) {
+            System.out.print(num + " ");
+        }
     }
 }

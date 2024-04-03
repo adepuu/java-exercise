@@ -1,7 +1,11 @@
 package com.adepuu.exercises.session8;
+//<<<<<<< HEAD
+import java.util.*;
+//=======
 
 import java.util.Scanner;
 
+//>>>>>>> main
 public class App {
     /**
      * Manages user registration, login, and task management for the To-Do List application.
@@ -47,6 +51,79 @@ public class App {
          Connect all the functionalities with the related menu ;)
          GL HF! ;)
         */
+//<<<<<<< HEAD
+
+//        Users users = new Users();
+//        Scanner scanner = new Scanner(System.in);
+//        TodoList todoList = new TodoList();
+//        boolean isLoggedIn = false;
+//        boolean isSignUp = false;
+//        boolean userBehave = true;
+//
+//        while(true) {
+//            if(!isSignUp ) {
+//                System.out.println("Welcome! Do you have account ?");
+//                System.out.println("1. Sign Up");
+//                System.out.println("2. Sign In");
+//            } else if(isSignUp && !isLoggedIn){
+//                System.out.println("Welcome! please login !");
+//                System.out.println("2. Sign In");
+//                System.out.println("3. Exit");
+//            }
+//
+//            System.out.print("Enter your choice: ");
+//            String choice = scanner.nextLine();
+//
+//            if (choice.equals("1")) {
+//                System.out.print("Enter username: ");
+//                String username = scanner.nextLine();
+//                System.out.print("Enter password: ");
+//                String password = scanner.nextLine();
+//                users.signUp(username, password);
+//
+//                isSignUp = true;
+//
+//            } else if (choice.equals("2") && !isLoggedIn) {
+//                isLoggedIn = true;
+//                System.out.print("Enter username: ");
+//                String username = scanner.nextLine();
+//                System.out.print("Enter password: ");
+//                String password = scanner.nextLine();
+//                users.logIn(username, password);
+//                todoList.displayMenu();
+//
+//                while (userBehave) {
+//                    String choiceUser = scanner.nextLine();
+//
+//                    switch (choiceUser) {
+//                        case "1":
+//                            todoList.addTask();
+//                            break;
+//                        case "2":
+//                            todoList.viewTasks();
+//                            break;
+//                        case "3":
+//                            userBehave = false;
+//                            isLoggedIn = false;
+//                            break;
+//                        default:
+//                            System.out.println("Invalid choice. Please try again.");
+//                            break;
+//                    }
+//                }
+//
+//            } else if (choice.equals("3")) {
+//                System.out.println("Thank you");
+//                break;
+//            } else {
+//                System.out.println("Invalid choice!");
+//            }
+//        }
+//
+//        scanner.close();
+//
+//        }
+//=======
         Scanner scanner = new Scanner(System.in);
 
         Auth auth = new Auth();
@@ -54,5 +131,6 @@ public class App {
         menu.authPrompt();
 
         scanner.close();
+//>>>>>>> main
     }
 }

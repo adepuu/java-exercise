@@ -1,4 +1,5 @@
 package com.adepuu.exercises.session7;
+import java.util.*;
 
 public class TicketingSystem {
     /**
@@ -18,13 +19,20 @@ public class TicketingSystem {
      * <p>
      * Start your project from the main method below ;) have fun!
      */
+    /*
+<<<<<<< HEAD
+        private static ArrayList<User> userList = new ArrayList<>();
+        private static ArrayList<Event> eventList = new ArrayList<>();
+        private static ArrayList<Ticket> ticketList = new ArrayList<>();
+=======
+     */
     public static void main(String[] args) {
         int maxTicket = 10;
 
         // User book ticket for an event
         Event event = new Event(maxTicket);
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 15; i++) {
             User user = new User(StringUtil.generateName());
 
             // User book ticket for an event
@@ -40,5 +48,50 @@ public class TicketingSystem {
                 System.out.println(user.getName() + "   Ticket ID: " + accuiredTicket.getID() + "   Event ID: " + accuiredTicket.getEventID());
             }
         }
+//<<<<<<< HEAD
+
+        /*
+>>>>>>> main
+
+        public static void main(String[] args) {
+            System.out.println("Welcome to Event Ticketing System!");
+
+            User user1 = new User("Alice");
+            User user2 = new User("Bob");
+            userList.add(user1);
+            userList.add(user2);
+
+            Event event1 = new Event("Concert", 2);
+            Event event2 = new Event("Theater Show", 1);
+            eventList.add(event1);
+            eventList.add(event2);
+
+            bookTicket(user1, event1);
+            bookTicket(user2, event2);
+
+            checkQuota();
+        }
+
+        public static void bookTicket(User user, Event event) {
+            if (event.getEventQuota() > 0) {
+                Ticket newTicket = new Ticket(event, user);
+                ticketList.add(newTicket);
+                event.someoneBuy();
+                System.out.println(user.getUserName() + " bought a ticket for " + event.getEventName());
+            } else {
+                System.out.println("No more quota available for event: " + event.getEventName());
+            }
+        }
+
+        public static void checkQuota() {
+            System.out.println("Current Event Quotas:");
+            for (Event event : eventList) {
+                System.out.println(event.getEventName() + " has " + event.getEventQuota() + " quota left");
+            }
+         */
+
+//=======
+//>>>>>>> main
     }
 }
+

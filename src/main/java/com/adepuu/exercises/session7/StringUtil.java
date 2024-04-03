@@ -1,5 +1,4 @@
 package com.adepuu.exercises.session7;
-
 import com.github.javafaker.Faker;
 
 public class StringUtil {

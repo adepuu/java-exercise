@@ -8,21 +8,31 @@ public class Exercise2 {
      * Explanation: d=2 so 2 elements are rotated to the end of the array. So, 1 2 is rotated back
      * So, Final result: 3, 4, 5, 6, 7, 1, 2
      */
-    public int[] rotateLeft(int[] input, int shiftPosition) {
-        int n = input.length;
-        // Create a temporary array to hold the shifted elements
-        int[] tempArray = new int[shiftPosition];
-
-        // Copy the first 'shiftPosition' elements into the temporary array
-        System.arraycopy(input, 0, tempArray, 0, shiftPosition);
-
-        // Shift the rest of the elements in the original array by 'shiftPosition' places
-        for (int i = 0; i < n - shiftPosition; i++) {
-            input[i] = input[i + shiftPosition];
+    public static int[] rotateArray(int[] arr, int r) {
+        if (r > arr.length) {
+            System.out.println("Rotation value cannot be bigger than array length");
+            return arr;
         }
 
-        // Copy the shifted elements from the temporary array back into the original array
-        System.arraycopy(tempArray, 0, input, n - shiftPosition, shiftPosition);
-        return input;
+        for (int i = 0; i < r; i++) {
+            int firstElement = arr[0];
+            for (int j = 0; j < arr.length - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+
+            arr[arr.length - 1] = firstElement;
+        }
+
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+        int r = 2;
+        int[] rotatedArray = rotateArray(array, r);
+
+        for (int num : rotatedArray) {
+            System.out.print(num + " ");
+        }
     }
 }

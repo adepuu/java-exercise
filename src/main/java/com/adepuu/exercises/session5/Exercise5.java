@@ -2,35 +2,6 @@ package com.adepuu.exercises.session5;
 
 
 public class Exercise5 {
-    public int[] sortNumbers(int[] numbers, SORT_DIRECTION direction) {
-        boolean swapped;
-        for (int i = 0; i < numbers.length - 1; i++) {
-            swapped = false;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                switch (direction) {
-                    case ASC -> {
-                        if (numbers[j] > numbers[j + 1]) {
-                            int temp = numbers[j];
-                            numbers[j] = numbers[j + 1];
-                            numbers[j + 1] = temp;
-                            swapped = true;
-                        }
-                    }
-                    case DESC -> {
-                        if (numbers[j] < numbers[j + 1]) {
-                            int temp = numbers[j];
-                            numbers[j] = numbers[j + 1];
-                            numbers[j + 1] = temp;
-                            swapped = true;
-                        }
-                    }
-                }
-            }
-            if (!swapped) break; // If no two elements were swapped by inner loop, then the array is sorted.
-        }
-        return numbers;
-    }
-
     /**
      * Java numbersay Program to sort numbersay in increasing & decreasing order
      * <p>
@@ -42,5 +13,40 @@ public class Exercise5 {
      * Input: [ 8, 7, 5, 2], direction = “desc”
      * Output: [ 8,7, 5, 2 ]
      */
-    public enum SORT_DIRECTION {ASC, DESC}
+    public static int[] sortingArray(int[] arr, String direction) {
+        int temp = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (direction.equals("asc") && arr[j] < arr[i] || direction.equals("desc") && arr[j] > arr[i]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {8, 7, 5, 2};
+        int[] arr2 = {8, 5, 2, 7};
+
+        int[] ascSorted = sortingArray(arr1, "asc");
+        int[] descSorted = sortingArray(arr2, "desc");
+
+        System.out.print("Ascending order: ");
+        for (int num : ascSorted) {
+            System.out.print(num + " ");
+        }
+
+        System.out.println();
+
+        System.out.print("Descending order: ");
+        for (int num : descSorted) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
 }
