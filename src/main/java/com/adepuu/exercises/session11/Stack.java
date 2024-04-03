@@ -1,5 +1,15 @@
 package com.adepuu.exercises.session11;
 
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
 public class Stack {
     /**
      * Write a Java stack program that can scale dynamically
@@ -16,14 +26,14 @@ public class Stack {
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to pop an element from an empty stack, and provide clear error messages.
      */
 
-        private Nodes top;
+        private Node top;
 
         public Stack() {
             this.top = null;
         }
 
         public void push(int data) {
-            Nodes newNode = new Nodes(data);
+            Node newNode = new Node(data);
             if (top == null) {
                 top = newNode;
             } else {
@@ -57,7 +67,7 @@ public class Stack {
     }
 
         public void print() {
-            Nodes current = top;
+            Node current = top;
             while (current != null) {
                 System.out.print(current.data + " ");
                 current = current.next;

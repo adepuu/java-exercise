@@ -1,5 +1,16 @@
 package com.adepuu.exercises.session11;
 
+class Nodes {
+    int data;
+    Nodes next;
+
+    public Nodes(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
 public class Queue {
     /**
      * Write a Java queue program that can scale dynamically
