@@ -33,7 +33,10 @@ public class BinaryTree {
         inorderRec(root);
     }
 
-    // Recursive method to print the tree in-order
+    // BFS -> Breadth First Search
+    // BFS -> Depth First Search
+
+    // Recursive method to print the tree in-order (DFS-> Depth First Search)
     private void inorderRec(Node root) {
         if (root != null) {
             // Traverse the left subtree

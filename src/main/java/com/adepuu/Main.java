@@ -1,5 +1,8 @@
 package com.adepuu;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -13,5 +16,7 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+
+        Queue<Integer> q = new LinkedList<Integer>();
     }
 }
