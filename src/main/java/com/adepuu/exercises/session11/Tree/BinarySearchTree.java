@@ -1,4 +1,7 @@
-package com.adepuu.exercises.session11;
+package com.adepuu.exercises.session11.Tree;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class BinarySearchTree {
     /**
@@ -19,7 +22,55 @@ public class BinarySearchTree {
      * - The program should provide a clear and straightforward way for the user to exit the continuous search loop and terminate the program, such as entering a specific keyword or command.
      *
      */
-    public static void main(String[] args) {
+    Node root;
 
+    public BinarySearchTree(){
+        root = null;
     }
+
+    public void insert(int data) {
+        root = insertRec(root, data);
+    }
+
+    public Node insertRec(Node root, int data) {
+        if (root == null) {
+            return new Node(data);
+        }
+        if (data < root.data) {
+            root.left = insertRec(root.left, data);
+        } else if (data > root.data) {
+            root.right = insertRec(root.right, data);
+        }
+        return root;
+    }
+
+    public void inorder() {
+        inorderRec(root);
+    }
+
+    private void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+
+            System.out.print(root.data + " ");
+
+            inorderRec(root.right);
+        }
+    }
+
+    public boolean search(int data) {
+        return searchRec(root, data);
+    }
+
+    private boolean searchRec(Node root, int data) {
+        if (root == null) {
+            return false;
+        }
+        if (data == root.data) {
+            return true;
+        }
+
+        return data < root.data ? searchRec(root.left, data) : searchRec(root.right, data);
+    }
+
 }
