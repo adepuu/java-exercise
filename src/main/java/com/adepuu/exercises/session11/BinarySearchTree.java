@@ -1,25 +1,42 @@
 package com.adepuu.exercises.session11;
 
-public class BinarySearchTree {
-    /**
-     * Write a Java binary search tree program that can scale dynamically
-     * <p>
-     * As a user, I want to insert N-numbers into a binary search tree and then search for a specific number. After searching, the program should prompt me to search for another number without terminating.
-     * <p>
-     * Acceptance Criteria:
-     * - The program should start by prompting the user to enter the number of elements (N) they wish to insert into the binary search tree.
-     * - The program should then prompt the user to enter N numbers one by one.
-     * <p>
-     * Acceptance Criteria:
-     * - The program should correctly insert each number into the binary search tree in a way that maintains the binary search tree properties (all nodes in the left subtree are less than the root, and all nodes in the right subtree are greater than the root).
-     * - The program should handle duplicate numbers appropriately, either by ignoring them or by updating the existing node.
-     * - After inserting all N-numbers, the program should prompt the user to enter a number to search for within the binary search tree.
-     * - The program should perform a binary search to find the entered number, following the binary search tree properties.
-     * - The program should display whether the number is found or not.
-     * - The program should provide a clear and straightforward way for the user to exit the continuous search loop and terminate the program, such as entering a specific keyword or command.
-     *
-     */
-    public static void main(String[] args) {
+import java.util.Scanner;
 
+public class BinarySearchTree {
+
+    public static void main(String[] args) {
+        LinkedList<Integer> bst = new LinkedList<>();
+        bst.insert(3);
+        bst.insert(6);
+        bst.insert(5);
+        bst.insert(7);
+        bst.insert(9);
+        bst.insert(11);
+        bst.insert(21);
+        bst.insert(55);
+        bst.insert(42);
+        bst.insert(21);
+        bst.insert(21);
+
+        Scanner sc = new Scanner(System.in);
+        String exitKey = "q";
+
+        while (true) {
+            System.out.print("Enter a number to search (or type '" + exitKey + "' to exit the program): ");
+            String userInput = sc.nextLine();
+
+            if (userInput.equals(exitKey)) {
+                System.out.println("Closing the program, bye have a great day!");
+                break;
+            }
+
+            try {
+                int number = Integer.parseInt(userInput);
+                System.out.println(bst.search(number));
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number or '" + exitKey + "' to exit the program");
+            }
+        }
+        bst.printInOrder();
     }
 }
