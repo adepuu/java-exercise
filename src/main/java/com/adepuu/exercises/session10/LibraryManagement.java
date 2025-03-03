@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session10;
 
+import java.util.Scanner;
+
 public class LibraryManagement {
     /**
      * Acceptance Criteria:
@@ -14,6 +16,18 @@ public class LibraryManagement {
      * - Make sure to implement Inheritance and Polymorphism properly
      */
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
+        Auth auth = new Auth();
+        MaterialList materialList = new MaterialList();
+        Menu menu = new Menu(scanner,auth,materialList);
+        DVD dvd = new DVD("Jack",1);
+        Book book = new Book("Aslan",2);
+        Magazine magazine = new Magazine("Weekly",1);
+        materialList.materialList.add(dvd);
+        materialList.materialList.add(book);
+        materialList.materialList.add(magazine);
+        while (true){
+            menu.landingScreen();
+        }
     }
 }
