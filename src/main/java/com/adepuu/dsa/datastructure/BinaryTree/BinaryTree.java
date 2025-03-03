@@ -67,4 +67,5 @@ public class BinaryTree {
 
         return value < root.value ? searchRec(root.left, value) : searchRec(root.right, value);
     }
+
 }
