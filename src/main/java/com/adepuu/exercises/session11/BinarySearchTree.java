@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session11;
 
+import com.adepuu.dsa.datastructure.BinaryTree.BinaryTree;
+
+import java.util.Scanner;
+
 public class BinarySearchTree {
     /**
      * Write a Java binary search tree program that can scale dynamically
@@ -20,6 +24,27 @@ public class BinarySearchTree {
      *
      */
     public static void main(String[] args) {
+        BinaryTree bt = new BinaryTree();
+        Scanner scanner = new Scanner(System.in);
+        String input;
 
+        do {
+            System.out.print("Enter number to insert or press q to stop: ");
+            input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("q")) {
+                break;
+            }
+
+            int num = Integer.parseInt(input);
+            bt.insert(num);
+
+        } while (true);
+
+        System.out.print("Enter the number you want to search: ");
+        int num = Integer.parseInt(scanner.nextLine());
+
+        boolean isExist = bt.search(num);
+        System.out.println(isExist ? "Your number is in the binary tree" : "Your number is not in binary tree");
     }
 }
