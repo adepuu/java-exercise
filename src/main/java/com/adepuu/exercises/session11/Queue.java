@@ -1,6 +1,8 @@
 package com.adepuu.exercises.session11;
 
-public class Queue {
+import java.util.LinkedList;
+
+public class Queue<T> {
     /**
      * Write a Java queue program that can scale dynamically
      * <p>
@@ -16,4 +18,56 @@ public class Queue {
      * - Memory Efficiency: The queue should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
+    private LinkedList<T> queueList;
+    Queue(){
+        queueList = new LinkedList<>();
+    }
+
+    public boolean isEmpty(){
+        return queueList.isEmpty();
+    }
+
+    public void enqueue(T value){
+        queueList.addLast(value);
+    }
+
+    public T dequeue(){
+        if(isEmpty()){
+            System.out.println("queue is empty");
+            return null;
+        }else {
+            return queueList.removeFirst();
+        }
+    }
+
+    public T peek(){
+        if(isEmpty()){
+            System.out.println("queue is empty");
+            return null;
+        } else {
+            return queueList.getFirst();
+        }
+    }
+    public static void main(String[] args) {
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(1);
+        System.out.println("1." + queue.peek());
+        queue.enqueue(2);
+        System.out.println("2." + queue.peek());
+        queue.enqueue(3);
+        System.out.println("3." + queue.peek());
+        queue.enqueue(4);
+        System.out.println("4." + queue.peek());
+        queue.enqueue(5);
+        System.out.println("5." + queue.peek());
+
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println("6." + queue.peek());
+
+
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.peek());
+    }
 }
